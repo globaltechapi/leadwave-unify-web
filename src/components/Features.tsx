@@ -11,6 +11,12 @@ import {
   ArrowRight,
   Zap
 } from "lucide-react";
+import aiChatbotImage from "@/assets/ai-chatbot.png";
+import bulkMessagingImage from "@/assets/bulk-messaging.png";
+import callAutomationImage from "@/assets/call-automation.png";
+import contactManagementImage from "@/assets/contact-management.png";
+import messageTemplatesImage from "@/assets/message-templates.png";
+import multiDeviceImage from "@/assets/multi-device.png";
 
 const Features = () => {
   const features = [
@@ -18,34 +24,40 @@ const Features = () => {
       icon: Smartphone,
       title: "Multi-Device Support",
       description: "Connect and manage multiple WhatsApp accounts from a single desktop application with seamless synchronization.",
-      highlight: true
+      highlight: true,
+      image: multiDeviceImage
     },
     {
       icon: MessageSquare,
       title: "Bulk Messaging",
       description: "Send personalized messages to multiple contacts simultaneously with smart scheduling and delivery optimization.",
-      highlight: true
+      highlight: true,
+      image: bulkMessagingImage
     },
     {
       icon: Bot,
       title: "Chatbot",
       description: "Intelligent automated responses powered by advanced AI to handle customer inquiries 24/7 with human-like interactions.",
-      highlight: true
+      highlight: true,
+      image: aiChatbotImage
     },
     {
       icon: FileText,
       title: "Message Templates",
-      description: "Create and manage reusable message templates for consistent communication."
+      description: "Create and manage reusable message templates for consistent communication.",
+      image: messageTemplatesImage
     },
     {
       icon: Users,
       title: "Contact Management",
-      description: "Import, organize, and manage your contacts with advanced filtering and grouping."
+      description: "Import, organize, and manage your contacts with advanced filtering and grouping.",
+      image: contactManagementImage
     },
     {
       icon: Phone,
       title: "Call Automation",
-      description: "Automated call responses and scheduling to streamline your communication workflow."
+      description: "Automated call responses and scheduling to streamline your communication workflow.",
+      image: callAutomationImage
     }
   ];
 
@@ -76,11 +88,19 @@ const Features = () => {
           {features.map((feature, index) => (
             <Card 
               key={index} 
-              className={`group hover:shadow-glow transition-all duration-300 hover:-translate-y-2 animate-scale-in border-0 shadow-card ${
+              className={`group hover:shadow-glow transition-all duration-300 hover:-translate-y-2 animate-scale-in border-0 shadow-card overflow-hidden ${
                 feature.highlight ? 'gradient-hero border border-primary/20' : ''
               }`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
+              <div className="aspect-video relative overflow-hidden">
+                <img 
+                  src={feature.image} 
+                  alt={`${feature.title} Interface`}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+              </div>
               <CardHeader>
                 <div className={`w-14 h-14 rounded-lg mb-4 flex items-center justify-center transition-smooth group-hover:scale-110 ${
                   feature.highlight ? 'gradient-primary' : 'bg-primary/10'

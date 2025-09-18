@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Play, CheckCircle, Clock, Lightbulb, ArrowRight } from "lucide-react";
+import dashboardImage from "@/assets/multi-device.png";
 
 const VideoSection = () => {
   const benefits = [
@@ -43,21 +44,23 @@ const VideoSection = () => {
           <div className="relative animate-scale-in">
             <Card className="overflow-hidden shadow-glow border-0">
               <CardContent className="p-0">
-                <div className="relative aspect-video bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center group cursor-pointer">
-                  <div className="absolute inset-0 bg-black/20" />
-                  <div className="relative z-10 text-center">
-                    <div className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform shadow-glow">
-                      <Play className="w-8 h-8 text-primary ml-1" />
+                <div className="relative aspect-video group cursor-pointer">
+                  <img 
+                    src={dashboardImage} 
+                    alt="LeadWave Dashboard Interface"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform shadow-glow">
+                        <Play className="w-8 h-8 text-primary ml-1" />
+                      </div>
+                      <h3 className="text-white text-xl font-semibold mb-2">
+                        Introducing LeadWave: The Ultimate WhatsApp Marketing App for 2025
+                      </h3>
+                      <p className="text-white/80 text-sm">Watch Full Tutorial • 11:08</p>
                     </div>
-                    <h3 className="text-white text-xl font-semibold mb-2">
-                      Introducing LeadWave: The Ultimate WhatsApp Marketing App for 2025
-                    </h3>
-                    <p className="text-white/80 text-sm">Watch Full Tutorial • 11:08</p>
                   </div>
-                  
-                  {/* Decorative Elements */}
-                  <div className="absolute top-4 left-4 w-16 h-16 bg-white/10 rounded-full blur-xl" />
-                  <div className="absolute bottom-4 right-4 w-12 h-12 bg-primary/20 rounded-full blur-lg" />
                 </div>
               </CardContent>
             </Card>

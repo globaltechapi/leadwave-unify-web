@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import heroImage from "@/assets/leadwave-hero.jpg";
+import heroImage from "@/assets/hero-app.jpg";
 import { ArrowRight, Play, Star, Zap } from "lucide-react";
 
 const Hero = () => {
@@ -65,8 +65,8 @@ const Hero = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-glow">
               <img
                 src={heroImage}
-                alt="LeadWave WhatsApp Desktop Application Interface"
-                className="w-full h-auto animate-float"
+                alt="LeadWave WhatsApp Desktop Application Loading Screen"
+                className="w-full h-auto animate-float rounded-xl"
                 style={{ animationDelay: '1s' }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
