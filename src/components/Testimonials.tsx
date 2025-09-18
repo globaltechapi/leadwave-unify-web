@@ -99,7 +99,7 @@ const Testimonials = () => {
         <div className="mt-16 text-center">
           <div className="inline-flex items-center gap-2 text-lg font-semibold text-primary animate-scale-in" style={{ animationDelay: '0.8s' }}>
             <Star className="w-5 h-5 text-yellow-500 fill-current" />
-            🚀 Join 10,000+ Happy Users
+            🚀 Join 300+ Happy Users
           </div>
         </div>
       </div>
