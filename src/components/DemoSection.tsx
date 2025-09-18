@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Download, MessageCircle, Key, Play, ArrowRight } from "lucide-react";
+import { Download, MessageCircle, Key, Play, ArrowRight, CheckCircle } from "lucide-react";
 import licenseScreen from "@/assets/license-screen.png";
+import activationScreen from "@/assets/activation-screen.png";
 
 const DemoSection = () => {
   const demoSteps = [
@@ -13,17 +14,22 @@ const DemoSection = () => {
     {
       icon: Key,
       title: "Get Your License Code",
-      description: "After installation, the app will display a unique license code. Copy this code as shown in the screenshot below."
+      description: "After installation, the app will display a unique license code. Copy this code as shown in the first screenshot below."
     },
     {
       icon: MessageCircle,
       title: "Share on WhatsApp",
-      description: "Send your license code to our WhatsApp number +91 72619 02348. Our team will provide you with an activation key within minutes."
+      description: "Send your license code to our WhatsApp number +91 72619 02348. Our admin will reply with your License Activation Code within minutes."
+    },
+    {
+      icon: CheckCircle,
+      title: "Enter Activation Code",
+      description: "Enter the License Activation Code you received from our admin into the app to unlock all features."
     },
     {
       icon: Play,
       title: "Start Using LeadWave",
-      description: "Enter the activation key in the app and start automating your WhatsApp business communications immediately."
+      description: "Once activated, you can immediately start automating your WhatsApp business communications and managing contacts."
     }
   ];
 
@@ -53,7 +59,7 @@ const DemoSection = () => {
         </div>
 
         {/* Steps Grid */}
-        <div className="grid lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid lg:grid-cols-5 gap-6 mb-16">
           {demoSteps.map((step, index) => (
             <Card key={index} className="relative group hover:shadow-lg transition-all duration-300 border-border/50">
               <CardContent className="p-6 text-center space-y-4">
@@ -70,24 +76,61 @@ const DemoSection = () => {
           ))}
         </div>
 
-        {/* License Screen Preview */}
+        {/* Screenshots Preview */}
         <div className="mb-16">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold mb-4">What You'll See After Installation</h3>
-            <p className="text-muted-foreground">
-              The app will display a license screen like this. Simply copy your unique code and send it to us on WhatsApp.
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold mb-4">Complete Activation Process</h3>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Follow these visual steps to activate your LeadWave application and start automating your WhatsApp communications.
             </p>
           </div>
           
-          <div className="max-w-4xl mx-auto">
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-              <div className="relative bg-background border border-border/50 rounded-2xl p-4 shadow-2xl">
-                <img 
-                  src={licenseScreen} 
-                  alt="LeadWave License Screen - Copy your unique license code"
-                  className="w-full rounded-lg shadow-lg"
-                />
+          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {/* Step 1: License Code Screen */}
+            <div className="space-y-4">
+              <div className="text-center">
+                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium mb-2">
+                  <span className="w-5 h-5 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold">1</span>
+                  Copy License Code
+                </div>
+                <h4 className="text-xl font-semibold mb-2">After Installation</h4>
+                <p className="text-muted-foreground text-sm">
+                  Copy your unique license code and send it via WhatsApp
+                </p>
+              </div>
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
+                <div className="relative bg-background border border-border/50 rounded-xl p-3 shadow-xl">
+                  <img 
+                    src={licenseScreen} 
+                    alt="LeadWave License Screen - Copy your unique license code"
+                    className="w-full rounded-lg shadow-md"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Step 2: Activation Screen */}
+            <div className="space-y-4">
+              <div className="text-center">
+                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium mb-2">
+                  <span className="w-5 h-5 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold">2</span>
+                  Enter Activation Code
+                </div>
+                <h4 className="text-xl font-semibold mb-2">After WhatsApp Response</h4>
+                <p className="text-muted-foreground text-sm">
+                  Enter the activation code received from our admin
+                </p>
+              </div>
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-secondary/20 to-primary/20 rounded-xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
+                <div className="relative bg-background border border-border/50 rounded-xl p-3 shadow-xl">
+                  <img 
+                    src={activationScreen} 
+                    alt="LeadWave Activation Screen - Enter your license activation code"
+                    className="w-full rounded-lg shadow-md"
+                  />
+                </div>
               </div>
             </div>
           </div>
