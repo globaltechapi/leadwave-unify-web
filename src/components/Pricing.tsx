@@ -1,10 +1,20 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check, ArrowRight, Zap, MessageSquare, Bot, Users, Phone, FileText } from "lucide-react";
+import { Check, ArrowRight, Zap, MessageSquare, Bot, Users, Phone, FileText, Star, Download, Key, ShoppingCart, ExternalLink, Crown, Shield, Sparkles } from "lucide-react";
 
 const Pricing = () => {
-  const plans = [
+  const mainProduct = {
+    name: "LeadWave Desktop Application",
+    subtitle: "Complete WhatsApp Marketing Solution",
+    price: "₹8,999",
+    originalPrice: "₹12,999",
+    savings: "Save ₹4,000",
+    includes: "Application + Key Generator",
+    description: "One-time purchase with lifetime access to the desktop application and key generation system"
+  };
+
+  const subscriptionPlans = [
     {
       name: "Quick Start",
       description: "Perfect for testing",
@@ -14,7 +24,7 @@ const Pricing = () => {
       popular: false
     },
     {
-      name: "Growth Accelerator",
+      name: "Growth Accelerator", 
       description: "Build momentum",
       price: "₹1,099",
       duration: "3 Months Access",
@@ -38,6 +48,15 @@ const Pricing = () => {
       popular: false
     }
   ];
+
+  const handleCodeCanyonClick = () => {
+    window.open("https://codecanyon.net/item/lead-wave-wa-marketing-desktop-app/59485045", "_blank");
+  };
+
+  const handleWhatsAppPurchase = () => {
+    const message = "Hi! I'm interested in purchasing LeadWave Desktop Application (₹8,999) with Key Generator. Please provide purchase details.";
+    window.open(`https://wa.me/917261902348?text=${encodeURIComponent(message)}`, "_blank");
+  };
 
   const features = [
     { icon: MessageSquare, text: "Unlimited WhatsApp messaging", description: "Send unlimited messages to any WhatsApp number without restrictions" },
@@ -63,53 +82,166 @@ const Pricing = () => {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Choose your commitment level and save more with longer plans
+            Choose between our premium desktop application or flexible subscription plans
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {plans.map((plan, index) => (
-            <Card 
-              key={index}
-              className={`relative group hover:shadow-glow transition-all duration-300 hover:-translate-y-2 animate-scale-in border-0 shadow-card ${
-                plan.popular 
-                  ? 'gradient-hero border-2 border-primary/50 scale-105' 
-                  : ''
-              }`}
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              {plan.popular && (
-                <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 gradient-primary text-white border-0">
-                  Most Popular
-                </Badge>
-              )}
-              
-              <CardHeader className="text-center pb-2">
-                <CardTitle className="text-xl">{plan.name}</CardTitle>
-                <CardDescription className="text-base">{plan.description}</CardDescription>
-              </CardHeader>
-              
-              <CardContent className="text-center space-y-4">
-                <div className="space-y-2">
-                  <div className="text-4xl font-bold text-primary">{plan.price}</div>
-                  <div className="text-sm text-muted-foreground">{plan.duration}</div>
-                  {plan.savings && (
-                    <Badge variant="secondary" className="text-green-600 bg-green-50 dark:bg-green-900/20">
-                      {plan.savings}
-                    </Badge>
-                  )}
+        {/* Main Product - Desktop Application */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <Badge className="mb-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-white border-0 px-4 py-2">
+              <Crown className="w-4 h-4 mr-2" />
+              Premium Desktop Application
+            </Badge>
+            <h3 className="text-2xl md:text-3xl font-bold mb-2">Complete WhatsApp Marketing Solution</h3>
+            <p className="text-muted-foreground">One-time purchase, lifetime access</p>
+          </div>
+
+          <Card className="max-w-2xl mx-auto shadow-2xl border-2 border-primary/20 bg-gradient-to-br from-background via-background to-primary/5 hover:shadow-glow transition-all duration-500 hover:scale-105">
+            <CardHeader className="text-center pb-4">
+              <div className="space-y-2">
+                <CardTitle className="text-2xl md:text-3xl">{mainProduct.name}</CardTitle>
+                <CardDescription className="text-lg text-muted-foreground">{mainProduct.subtitle}</CardDescription>
+              </div>
+            </CardHeader>
+            
+            <CardContent className="space-y-8">
+              {/* Pricing */}
+              <div className="text-center space-y-4">
+                <div className="flex items-center justify-center gap-4">
+                  <span className="text-2xl text-muted-foreground line-through">{mainProduct.originalPrice}</span>
+                  <span className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                    {mainProduct.price}
+                  </span>
                 </div>
+                <Badge className="bg-green-500 text-white px-4 py-1">
+                  <Sparkles className="w-4 h-4 mr-1" />
+                  {mainProduct.savings}
+                </Badge>
+                <p className="text-muted-foreground">{mainProduct.includes}</p>
+                <p className="text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
+                  {mainProduct.description}
+                </p>
+              </div>
+
+              {/* What's Included */}
+              <div className="space-y-4">
+                <h4 className="text-lg font-semibold text-center">What's Included:</h4>
+                <div className="grid gap-3">
+                  {[
+                    { icon: Download, text: "Complete Desktop Application", desc: "Full-featured WhatsApp marketing software" },
+                    { icon: Key, text: "Key Generator System", desc: "Generate unlimited license keys" },
+                    { icon: Shield, text: "Lifetime License", desc: "No recurring fees or subscriptions" },
+                    { icon: Bot, text: "Advanced Automation", desc: "AI-powered messaging and chatbots" },
+                    { icon: Users, text: "Multi-User Support", desc: "Team collaboration features" },
+                    { icon: Phone, text: "Multi-Device Access", desc: "Use across multiple devices" }
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 border border-border/50">
+                      <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                        <item.icon className="w-4 h-4 text-primary" />
+                      </div>
+                      <div>
+                        <span className="font-medium">{item.text}</span>
+                        <p className="text-xs text-muted-foreground">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Purchase Buttons */}
+              <div className="space-y-4">
+                <Button 
+                  onClick={handleWhatsAppPurchase}
+                  size="lg" 
+                  className="w-full bg-green-500 hover:bg-green-600 text-white group text-lg py-6"
+                >
+                  <MessageSquare className="w-5 h-5 mr-2" />
+                  Purchase via WhatsApp
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
                 
                 <Button 
-                  variant={plan.popular ? "hero" : "outline"} 
-                  className="w-full group"
+                  onClick={handleCodeCanyonClick}
+                  variant="outline" 
+                  size="lg"
+                  className="w-full group text-lg py-6 border-2"
                 >
-                  Get Started
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <ShoppingCart className="w-5 h-5 mr-2" />
+                  Buy on CodeCanyon
+                  <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
-              </CardContent>
-            </Card>
-          ))}
+
+                <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground pt-2">
+                  <div className="flex items-center gap-1">
+                    <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                    <span>4.9/5 Rating</span>
+                  </div>
+                  <span>•</span>
+                  <span>500+ Sales</span>
+                  <span>•</span>
+                  <span>24/7 Support</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Subscription Plans */}
+        <div className="mb-16">
+          <div className="text-center mb-12">
+            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 px-4 py-2">
+              <Zap className="w-4 h-4 mr-2" />
+              Alternative: Subscription Plans
+            </Badge>
+            <h3 className="text-2xl font-bold mb-2">Flexible Access Options</h3>
+            <p className="text-muted-foreground">For those who prefer monthly commitments</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {subscriptionPlans.map((plan, index) => (
+              <Card 
+                key={index}
+                className={`relative group hover:shadow-glow transition-all duration-300 hover:-translate-y-2 animate-scale-in border-0 shadow-card ${
+                  plan.popular 
+                    ? 'gradient-hero border-2 border-primary/50 scale-105' 
+                    : ''
+                }`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {plan.popular && (
+                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 gradient-primary text-white border-0">
+                    Most Popular
+                  </Badge>
+                )}
+                
+                <CardHeader className="text-center pb-2">
+                  <CardTitle className="text-xl">{plan.name}</CardTitle>
+                  <CardDescription className="text-base">{plan.description}</CardDescription>
+                </CardHeader>
+                
+                <CardContent className="text-center space-y-4">
+                  <div className="space-y-2">
+                    <div className="text-4xl font-bold text-primary">{plan.price}</div>
+                    <div className="text-sm text-muted-foreground">{plan.duration}</div>
+                    {plan.savings && (
+                      <Badge variant="secondary" className="text-green-600 bg-green-50 dark:bg-green-900/20">
+                        {plan.savings}
+                      </Badge>
+                    )}
+                  </div>
+                  
+                  <Button 
+                    variant={plan.popular ? "hero" : "outline"} 
+                    className="w-full group"
+                  >
+                    Get Started
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
 
         {/* Features List */}
