@@ -85,84 +85,126 @@ const Pricing = () => {
             <p className="text-muted-foreground">One-time purchase, lifetime access</p>
           </div>
 
-          <Card className="max-w-2xl mx-auto shadow-2xl border-2 border-primary/20 bg-gradient-to-br from-background via-background to-primary/5 hover:shadow-glow transition-all duration-500 hover:scale-105">
-            <CardHeader className="text-center pb-3">
-              <div className="space-y-1">
-                <CardTitle className="text-xl md:text-2xl">{mainProduct.name}</CardTitle>
-                <CardDescription className="text-base text-muted-foreground">{mainProduct.subtitle}</CardDescription>
-              </div>
-            </CardHeader>
+          {/* Full Width Stunning Layout */}
+          <div className="relative">
+            {/* Background Effects */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-secondary/5 to-primary/10 rounded-3xl blur-3xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-background/50 to-transparent"></div>
             
-            <CardContent className="space-y-6">
-              {/* Pricing */}
-              <div className="text-center space-y-3">
-                <div className="flex items-center justify-center gap-3">
-                  <span className="text-lg text-muted-foreground line-through">{mainProduct.originalPrice}</span>
-                  <span className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                    {mainProduct.price}
-                  </span>
-                </div>
-                <Badge className="bg-green-500 text-white px-3 py-1">
-                  <Sparkles className="w-4 h-4 mr-1" />
-                  {mainProduct.savings}
-                </Badge>
-                <p className="text-sm text-muted-foreground">{mainProduct.includes}</p>
-              </div>
-
-              {/* What's Included - Compact Grid */}
-              <div className="space-y-3">
-                <h4 className="text-base font-semibold text-center">What's Included:</h4>
-                <div className="grid grid-cols-2 gap-2 text-sm">
-                  {[
-                    { icon: Download, text: "Desktop Application" },
-                    { icon: Key, text: "Key Generator" },
-                    { icon: Shield, text: "Lifetime License" },
-                    { icon: Bot, text: "AI Automation" },
-                    { icon: Users, text: "Multi-User Access" },
-                    { icon: Phone, text: "Multi-Device Support" }
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-center gap-2 p-2 rounded bg-muted/30">
-                      <item.icon className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="font-medium text-xs">{item.text}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Purchase Buttons */}
-              <div className="space-y-3">
-                <Button 
-                  onClick={handleWhatsAppPurchase}
-                  size="lg" 
-                  className="w-full bg-green-500 hover:bg-green-600 text-white group py-4"
-                >
-                  <MessageSquare className="w-4 h-4 mr-2" />
-                  Purchase via WhatsApp
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                
-                <Button 
-                  onClick={handleCodeCanyonClick}
-                  variant="outline" 
-                  size="lg"
-                  className="w-full group py-4 border-2"
-                >
-                  <ShoppingCart className="w-4 h-4 mr-2" />
-                  Buy on CodeCanyon
-                  <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-
-                <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground pt-1">
-                  <div className="flex items-center gap-1">
-                    <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                    <span>4.9/5 Rating</span>
+            <Card className="relative max-w-7xl mx-auto shadow-2xl border-2 border-primary/20 bg-gradient-to-br from-background via-background to-primary/5 rounded-3xl overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-primary"></div>
+              
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Left Side - Product Info */}
+                <div className="p-8 lg:p-12 space-y-8">
+                  <div className="space-y-4">
+                    <CardTitle className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                      {mainProduct.name}
+                    </CardTitle>
+                    <CardDescription className="text-xl text-muted-foreground">
+                      {mainProduct.subtitle}
+                    </CardDescription>
                   </div>
-                  <span>•</span>
-                  <span>300+ Sales</span>
+
+                  {/* Pricing Display */}
+                  <div className="space-y-4">
+                    <div className="flex items-baseline gap-4">
+                      <span className="text-2xl text-muted-foreground line-through opacity-60">{mainProduct.originalPrice}</span>
+                      <span className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                        {mainProduct.price}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <Badge className="bg-green-500 text-white px-4 py-2 text-base">
+                        <Sparkles className="w-4 h-4 mr-2" />
+                        {mainProduct.savings}
+                      </Badge>
+                      <span className="text-lg text-muted-foreground">{mainProduct.includes}</span>
+                    </div>
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="space-y-4">
+                    <Button 
+                      onClick={handleWhatsAppPurchase}
+                      size="lg" 
+                      className="w-full bg-green-500 hover:bg-green-600 text-white group text-xl py-6 rounded-xl shadow-lg hover:shadow-green-500/25 transition-all duration-300"
+                    >
+                      <MessageSquare className="w-5 h-5 mr-3" />
+                      Purchase via WhatsApp
+                      <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                    
+                    <Button 
+                      onClick={handleCodeCanyonClick}
+                      variant="outline" 
+                      size="lg"
+                      className="w-full group text-xl py-6 border-2 border-primary/20 hover:border-primary/40 rounded-xl hover:shadow-lg transition-all duration-300"
+                    >
+                      <ShoppingCart className="w-5 h-5 mr-3" />
+                      Buy on CodeCanyon
+                      <ExternalLink className="ml-3 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+
+                    <div className="flex items-center justify-center gap-6 text-base text-muted-foreground pt-2">
+                      <div className="flex items-center gap-2">
+                        <Star className="w-5 h-5 text-yellow-500 fill-current" />
+                        <span>4.9/5 Rating</span>
+                      </div>
+                      <span>•</span>
+                      <span>300+ Sales</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Side - Features Grid */}
+                <div className="bg-gradient-to-br from-muted/30 to-muted/10 p-8 lg:p-12 border-l border-border/20">
+                  <div className="space-y-6">
+                    <h4 className="text-2xl font-bold text-center mb-8">What's Included:</h4>
+                    
+                    <div className="grid gap-4">
+                      {[
+                        { icon: Download, text: "Complete Desktop Application", desc: "Full-featured WhatsApp marketing software with all premium features", color: "blue" },
+                        { icon: Key, text: "Key Generator System", desc: "Generate unlimited license keys for your customers", color: "purple" },
+                        { icon: Shield, text: "Lifetime License", desc: "No recurring fees or subscriptions - pay once, use forever", color: "green" },
+                        { icon: Bot, text: "Advanced AI Automation", desc: "AI-powered messaging, auto-replies, and intelligent chatbots", color: "orange" },
+                        { icon: Users, text: "Multi-User Access", desc: "Team collaboration with role-based permissions", color: "indigo" },
+                        { icon: Phone, text: "Multi-Device Support", desc: "Sync across multiple devices with cloud integration", color: "cyan" }
+                      ].map((item, index) => (
+                        <div key={index} className="flex items-start gap-4 p-4 rounded-2xl bg-background/60 border border-border/30 hover:border-primary/20 hover:shadow-md transition-all duration-300 group">
+                          <div className={`w-12 h-12 rounded-xl bg-${item.color}-100 dark:bg-${item.color}-900/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                            <item.icon className={`w-6 h-6 text-${item.color}-500`} />
+                          </div>
+                          <div className="space-y-1">
+                            <span className="font-semibold text-base text-foreground">{item.text}</span>
+                            <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Trust Badges */}
+                    <div className="mt-8 p-4 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl border border-primary/10">
+                      <div className="flex items-center justify-center gap-8 text-sm">
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-primary">300+</div>
+                          <div className="text-muted-foreground">Happy Customers</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-primary">4.9★</div>
+                          <div className="text-muted-foreground">Average Rating</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-primary">∞</div>
+                          <div className="text-muted-foreground">Lifetime Access</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </CardContent>
-          </Card>
+            </Card>
+          </div>
         </div>
 
         {/* Subscription Plans */}
