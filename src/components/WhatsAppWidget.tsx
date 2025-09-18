@@ -12,7 +12,15 @@ const WhatsAppWidget = () => {
 
   const handleWhatsAppClick = () => {
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(predefinedMessage)}`;
+    console.log("Opening WhatsApp URL:", url); // Debug log
     window.open(url, "_blank");
+  };
+
+  const handleMainButtonClick = () => {
+    // Option 1: Direct WhatsApp redirection
+    handleWhatsAppClick();
+    // Option 2: Toggle popup (comment out the line above and uncomment below for popup behavior)
+    // setIsOpen(!isOpen);
   };
 
   useEffect(() => {
@@ -105,7 +113,7 @@ const WhatsAppWidget = () => {
         
         {/* Main Button */}
         <Button
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={handleMainButtonClick}
           className="relative w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 shadow-2xl group transition-all duration-300 hover:scale-110"
         >
           <MessageCircle className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
