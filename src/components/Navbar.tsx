@@ -2,10 +2,12 @@ import { Button } from "@/components/ui/button";
 import leadwaveLogo from "@/assets/leadwave-logo.png";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const navItems = [
     { name: "Features", href: "#features", type: "anchor" },
@@ -15,6 +17,29 @@ const Navbar = () => {
     { name: "About Us", href: "/about", type: "link" },
     { name: "Contact", href: "/contact", type: "link" },
   ];
+
+  const handleNavClick = (item: { name: string; href: string; type: string }) => {
+    if (item.type === "anchor") {
+      // If we're not on the home page, navigate to home first
+      if (location.pathname !== "/") {
+        navigate("/", { replace: true });
+        // Use setTimeout to ensure navigation completes before scrolling
+        setTimeout(() => {
+          const element = document.querySelector(item.href);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100);
+      } else {
+        // We're already on home page, just scroll to section
+        const element = document.querySelector(item.href);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+    setIsMenuOpen(false);
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -39,18 +64,18 @@ const Navbar = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
                 >
                   {item.name}
                 </Link>
               ) : (
-                <a
+                <button
                   key={item.name}
-                  href={item.href}
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  onClick={() => handleNavClick(item)}
+                  className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
                 >
                   {item.name}
-                </a>
+                </button>
               )
             ))}
           </div>
@@ -88,14 +113,13 @@ const Navbar = () => {
                     {item.name}
                   </Link>
                 ) : (
-                  <a
+                  <button
                     key={item.name}
-                    href={item.href}
-                    className="text-muted-foreground hover:text-primary transition-colors py-2"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={() => handleNavClick(item)}
+                    className="text-muted-foreground hover:text-primary transition-colors py-2 text-left"
                   >
                     {item.name}
-                  </a>
+                  </button>
                 )
               ))}
               <Button variant="hero" size="default" className="mt-2">
