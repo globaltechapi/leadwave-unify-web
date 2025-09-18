@@ -44,7 +44,10 @@ const VideoSection = () => {
           <div className="relative animate-scale-in">
             <Card className="overflow-hidden shadow-glow border-0">
               <CardContent className="p-0">
-                <div className="relative aspect-video group cursor-pointer">
+                <div 
+                  className="relative aspect-video group cursor-pointer"
+                  onClick={() => window.open('https://youtu.be/-IawA-meopM', '_blank')}
+                >
                   <img 
                     src={dashboardImage} 
                     alt="LeadWave Dashboard Interface"
