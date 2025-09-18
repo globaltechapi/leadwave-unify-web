@@ -147,23 +147,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Trust Indicators */}
-        <div className="mt-8 pt-8 border-t border-border/50">
-          <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <MessageSquare className="w-4 h-4 text-primary" />
-              <span>300+ Active Users</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span>•</span>
-              <span>99.9% Uptime Guarantee</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span>•</span>
-              <span>24/7 Customer Support</span>
-            </div>
-          </div>
-        </div>
       </div>
     </footer>
   );
