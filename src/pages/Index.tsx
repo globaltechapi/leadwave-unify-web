@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import VideoSection from "@/components/VideoSection";
 import Pricing from "@/components/Pricing";
+import DemoSection from "@/components/DemoSection";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -20,6 +21,9 @@ const Index = () => {
         </div>
         <div id="pricing">
           <Pricing />
+        </div>
+        <div id="demo">
+          <DemoSection />
         </div>
         <CTA />
       </main>

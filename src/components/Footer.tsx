@@ -63,6 +63,12 @@ const Footer = () => {
                 <span>+91 (555) 123-4567</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                <MessageSquare className="w-4 h-4 text-green-500" />
+                <a href="https://wa.me/917261902348" className="hover:text-primary transition-colors">
+                  WhatsApp: +91 72619 02348
+                </a>
+              </div>
+              <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary" />
                 <span>Mumbai, Maharashtra, India</span>
               </div>
