@@ -6,6 +6,7 @@ import Pricing from "@/components/Pricing";
 import DemoSection from "@/components/DemoSection";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 const Index = () => {
   return (
@@ -28,6 +29,7 @@ const Index = () => {
         <CTA />
       </main>
       <Footer />
+      <WhatsAppWidget />
     </div>
   );
 };
