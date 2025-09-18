@@ -271,7 +271,7 @@ const Pricing = () => {
             <CardTitle className="text-2xl">All Plans Include</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {features.map((feature, index) => (
                 <div key={index} className="flex gap-4 p-4 rounded-lg bg-background/50 border border-border/50 hover:bg-background/80 transition-colors">
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
