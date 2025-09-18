@@ -266,32 +266,31 @@ const Pricing = () => {
         </div>
 
         {/* Features List */}
-        <Card className="max-w-4xl mx-auto shadow-card border-0 animate-scale-in" style={{ animationDelay: '0.6s' }}>
-          <CardHeader className="text-center">
-            <CardTitle className="text-2xl">All Plans Include</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {features.map((feature, index) => (
-                <div key={index} className="flex gap-4 p-4 rounded-lg bg-background/50 border border-border/50 hover:bg-background/80 transition-colors">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <feature.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div className="space-y-1">
-                    <h4 className="font-semibold text-foreground">{feature.text}</h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
-                  </div>
+        <div className="animate-scale-in" style={{ animationDelay: '0.6s' }}>
+          <div className="text-center mb-12">
+            <h3 className="text-2xl font-bold">All Plans Include</h3>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {features.map((feature, index) => (
+              <div key={index} className="flex flex-col gap-4 p-6 rounded-2xl bg-card border border-border hover:border-primary/20 hover:shadow-lg transition-all duration-300 group">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <feature.icon className="w-6 h-6 text-primary" />
                 </div>
-              ))}
-            </div>
-            
-            <div className="text-center mt-8">
-              <Button variant="ghost" className="text-primary hover:text-primary/80">
-                View all features and detailed comparison →
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-foreground text-lg">{feature.text}</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <Button variant="ghost" className="text-primary hover:text-primary/80">
+              View all features and detailed comparison →
+            </Button>
+          </div>
+        </div>
       </div>
     </section>
   );
