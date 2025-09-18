@@ -9,7 +9,6 @@ const Navbar = () => {
   const navItems = [
     { name: "Features", href: "#features" },
     { name: "Video", href: "#video" },
-    { name: "Testimonials", href: "#testimonials" },
     { name: "Pricing", href: "#pricing" },
   ];
 
@@ -22,9 +21,9 @@ const Navbar = () => {
             <img 
               src={leadwaveLogo} 
               alt="LeadWave Logo" 
-              className="w-8 h-8"
+              className="w-11 h-11"
             />
-            <span className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               LeadWave
             </span>
           </div>

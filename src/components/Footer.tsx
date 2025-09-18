@@ -45,7 +45,7 @@ const Footer = () => {
                 alt="LeadWave Logo" 
                 className="w-8 h-8"
               />
-              <span className="text-xl font-bold">LeadWave Desktop</span>
+              <span className="text-xl font-bold">LeadWave</span>
             </div>
             
             <p className="text-muted-foreground leading-relaxed max-w-md">
