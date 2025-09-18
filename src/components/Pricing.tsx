@@ -40,12 +40,14 @@ const Pricing = () => {
   ];
 
   const features = [
-    { icon: MessageSquare, text: "Unlimited WhatsApp" },
-    { icon: Zap, text: "Bulk Messages" },
-    { icon: Bot, text: "Auto Reply" },
-    { icon: Bot, text: "Chatbot" },
-    { icon: Users, text: "Live Chat" },
-    { icon: FileText, text: "And Much More" }
+    { icon: MessageSquare, text: "Unlimited WhatsApp messaging", description: "Send unlimited messages to any WhatsApp number without restrictions" },
+    { icon: Zap, text: "Bulk message campaigns", description: "Send mass messages to multiple contacts simultaneously with smart scheduling" },
+    { icon: Bot, text: "AI-powered auto-reply", description: "Intelligent automated responses based on message content and context" },
+    { icon: Bot, text: "Advanced chatbot builder", description: "Create custom chatbots with conditional logic and branching conversations" },
+    { icon: Users, text: "Multi-user collaboration", description: "Team access with role-based permissions and shared contact management" },
+    { icon: Phone, text: "Multi-device sync", description: "Access your WhatsApp from multiple devices with real-time synchronization" },
+    { icon: FileText, text: "Message templates library", description: "Pre-built templates for common business scenarios and quick responses" },
+    { icon: Check, text: "Advanced contact management", description: "Organize contacts with tags, groups, and custom fields for better targeting" }
   ];
 
   return (
@@ -116,13 +118,16 @@ const Pricing = () => {
             <CardTitle className="text-2xl">All Plans Include</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-2 gap-6">
               {features.map((feature, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <feature.icon className="w-4 h-4 text-primary" />
+                <div key={index} className="flex gap-4 p-4 rounded-lg bg-background/50 border border-border/50 hover:bg-background/80 transition-colors">
+                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <feature.icon className="w-5 h-5 text-primary" />
                   </div>
-                  <span className="text-foreground font-medium">{feature.text}</span>
+                  <div className="space-y-1">
+                    <h4 className="font-semibold text-foreground">{feature.text}</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
+                  </div>
                 </div>
               ))}
             </div>
