@@ -74,22 +74,10 @@ const Pricing = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-3xl md:text-5xl font-bold">
-            Duration-Based{" "}
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Pricing
-            </span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Choose between our premium desktop application or flexible subscription plans
-          </p>
-        </div>
-
         {/* Main Product - Desktop Application */}
-        <div className="mb-20">
-          <div className="text-center mb-12">
-            <Badge className="mb-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-white border-0 px-4 py-2">
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <Badge className="mb-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white border-0 px-4 py-2">
               <Crown className="w-4 h-4 mr-2" />
               Premium Desktop Application
             </Badge>
@@ -98,89 +86,79 @@ const Pricing = () => {
           </div>
 
           <Card className="max-w-2xl mx-auto shadow-2xl border-2 border-primary/20 bg-gradient-to-br from-background via-background to-primary/5 hover:shadow-glow transition-all duration-500 hover:scale-105">
-            <CardHeader className="text-center pb-4">
-              <div className="space-y-2">
-                <CardTitle className="text-2xl md:text-3xl">{mainProduct.name}</CardTitle>
-                <CardDescription className="text-lg text-muted-foreground">{mainProduct.subtitle}</CardDescription>
+            <CardHeader className="text-center pb-3">
+              <div className="space-y-1">
+                <CardTitle className="text-xl md:text-2xl">{mainProduct.name}</CardTitle>
+                <CardDescription className="text-base text-muted-foreground">{mainProduct.subtitle}</CardDescription>
               </div>
             </CardHeader>
             
-            <CardContent className="space-y-8">
+            <CardContent className="space-y-6">
               {/* Pricing */}
-              <div className="text-center space-y-4">
-                <div className="flex items-center justify-center gap-4">
-                  <span className="text-2xl text-muted-foreground line-through">{mainProduct.originalPrice}</span>
-                  <span className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              <div className="text-center space-y-3">
+                <div className="flex items-center justify-center gap-3">
+                  <span className="text-lg text-muted-foreground line-through">{mainProduct.originalPrice}</span>
+                  <span className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                     {mainProduct.price}
                   </span>
                 </div>
-                <Badge className="bg-green-500 text-white px-4 py-1">
+                <Badge className="bg-green-500 text-white px-3 py-1">
                   <Sparkles className="w-4 h-4 mr-1" />
                   {mainProduct.savings}
                 </Badge>
-                <p className="text-muted-foreground">{mainProduct.includes}</p>
-                <p className="text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
-                  {mainProduct.description}
-                </p>
+                <p className="text-sm text-muted-foreground">{mainProduct.includes}</p>
               </div>
 
-              {/* What's Included */}
-              <div className="space-y-4">
-                <h4 className="text-lg font-semibold text-center">What's Included:</h4>
-                <div className="grid gap-3">
+              {/* What's Included - Compact Grid */}
+              <div className="space-y-3">
+                <h4 className="text-base font-semibold text-center">What's Included:</h4>
+                <div className="grid grid-cols-2 gap-2 text-sm">
                   {[
-                    { icon: Download, text: "Complete Desktop Application", desc: "Full-featured WhatsApp marketing software" },
-                    { icon: Key, text: "Key Generator System", desc: "Generate unlimited license keys" },
-                    { icon: Shield, text: "Lifetime License", desc: "No recurring fees or subscriptions" },
-                    { icon: Bot, text: "Advanced Automation", desc: "AI-powered messaging and chatbots" },
-                    { icon: Users, text: "Multi-User Support", desc: "Team collaboration features" },
-                    { icon: Phone, text: "Multi-Device Access", desc: "Use across multiple devices" }
+                    { icon: Download, text: "Desktop Application" },
+                    { icon: Key, text: "Key Generator" },
+                    { icon: Shield, text: "Lifetime License" },
+                    { icon: Bot, text: "AI Automation" },
+                    { icon: Users, text: "Multi-User Access" },
+                    { icon: Phone, text: "Multi-Device Support" }
                   ].map((item, index) => (
-                    <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 border border-border/50">
-                      <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
-                        <item.icon className="w-4 h-4 text-primary" />
-                      </div>
-                      <div>
-                        <span className="font-medium">{item.text}</span>
-                        <p className="text-xs text-muted-foreground">{item.desc}</p>
-                      </div>
+                    <div key={index} className="flex items-center gap-2 p-2 rounded bg-muted/30">
+                      <item.icon className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="font-medium text-xs">{item.text}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Purchase Buttons */}
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <Button 
                   onClick={handleWhatsAppPurchase}
                   size="lg" 
-                  className="w-full bg-green-500 hover:bg-green-600 text-white group text-lg py-6"
+                  className="w-full bg-green-500 hover:bg-green-600 text-white group py-4"
                 >
-                  <MessageSquare className="w-5 h-5 mr-2" />
+                  <MessageSquare className="w-4 h-4 mr-2" />
                   Purchase via WhatsApp
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 
                 <Button 
                   onClick={handleCodeCanyonClick}
                   variant="outline" 
                   size="lg"
-                  className="w-full group text-lg py-6 border-2"
+                  className="w-full group py-4 border-2"
                 >
-                  <ShoppingCart className="w-5 h-5 mr-2" />
+                  <ShoppingCart className="w-4 h-4 mr-2" />
                   Buy on CodeCanyon
                   <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
 
-                <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground pt-2">
+                <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground pt-1">
                   <div className="flex items-center gap-1">
                     <Star className="w-4 h-4 text-yellow-500 fill-current" />
                     <span>4.9/5 Rating</span>
                   </div>
                   <span>•</span>
-                  <span>500+ Sales</span>
-                  <span>•</span>
-                  <span>24/7 Support</span>
+                  <span>300+ Sales</span>
                 </div>
               </div>
             </CardContent>
