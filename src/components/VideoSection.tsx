@@ -1,9 +1,12 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Play, CheckCircle, Clock, Lightbulb, ArrowRight } from "lucide-react";
+import { Play, CheckCircle, Clock, Lightbulb, ArrowRight, X } from "lucide-react";
 import dashboardImage from "@/assets/multi-device.png";
+import { useState } from "react";
 
 const VideoSection = () => {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
   const benefits = [
     {
       icon: CheckCircle,
@@ -44,27 +47,46 @@ const VideoSection = () => {
           <div className="relative animate-scale-in">
             <Card className="overflow-hidden shadow-glow border-0">
               <CardContent className="p-0">
-                <div 
-                  className="relative aspect-video group cursor-pointer"
-                  onClick={() => window.open('https://youtu.be/-IawA-meopM', '_blank')}
-                >
-                  <img 
-                    src={dashboardImage} 
-                    alt="LeadWave Dashboard Interface"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform shadow-glow">
-                        <Play className="w-8 h-8 text-primary ml-1" />
+                {!isVideoPlaying ? (
+                  <div 
+                    className="relative aspect-video group cursor-pointer"
+                    onClick={() => setIsVideoPlaying(true)}
+                  >
+                    <img 
+                      src={dashboardImage} 
+                      alt="LeadWave Dashboard Interface"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform shadow-glow">
+                          <Play className="w-8 h-8 text-primary ml-1" />
+                        </div>
+                        <h3 className="text-white text-xl font-semibold mb-2">
+                          Introducing LeadWave: The Ultimate WhatsApp Marketing App for 2025
+                        </h3>
+                        <p className="text-white/80 text-sm">Watch Full Tutorial • 11:08</p>
                       </div>
-                      <h3 className="text-white text-xl font-semibold mb-2">
-                        Introducing LeadWave: The Ultimate WhatsApp Marketing App for 2025
-                      </h3>
-                      <p className="text-white/80 text-sm">Watch Full Tutorial • 11:08</p>
                     </div>
                   </div>
-                </div>
+                ) : (
+                  <div className="relative aspect-video">
+                    <iframe
+                      src="https://www.youtube.com/embed/-IawA-meopM?autoplay=1"
+                      title="LeadWave Tutorial"
+                      className="w-full h-full"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                    <button
+                      onClick={() => setIsVideoPlaying(false)}
+                      className="absolute top-4 right-4 w-8 h-8 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-colors"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  </div>
+                )}
               </CardContent>
             </Card>
           </div>
