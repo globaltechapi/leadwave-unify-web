@@ -10,6 +10,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const navItems = [
+    { name: "Home", href: "/", type: "link" },
     { name: "Features", href: "#features", type: "anchor" },
     { name: "Video", href: "#video", type: "anchor" },
     { name: "Pricing", href: "#pricing", type: "anchor" },
