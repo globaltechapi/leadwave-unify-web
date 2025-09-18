@@ -19,7 +19,7 @@ const CTA = () => {
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <Badge variant="secondary" className="inline-flex items-center gap-2 text-base px-6 py-2">
             <Star className="w-5 h-5 text-yellow-500 fill-current" />
-            Join 10,000+ Happy Users
+            Join 300+ Happy Users
           </Badge>
           
           <div className="space-y-6 animate-scale-in">
