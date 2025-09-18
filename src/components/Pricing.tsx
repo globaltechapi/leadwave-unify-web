@@ -214,7 +214,7 @@ const Pricing = () => {
               <Zap className="w-4 h-4 mr-2" />
               Alternative: Subscription Plans
             </Badge>
-            <h3 className="text-2xl font-bold mb-2">Flexible Access Options</h3>
+            <h3 className="text-2xl font-bold mb-2">Subscription Plans are also available</h3>
             <p className="text-muted-foreground">For those who prefer monthly commitments</p>
           </div>
 
