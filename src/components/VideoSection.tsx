@@ -57,7 +57,7 @@ const VideoSection = () => {
                       alt="LeadWave Features Overview"
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
                       <div className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-glow">
                         <Play className="w-8 h-8 text-primary ml-1" />
                       </div>
