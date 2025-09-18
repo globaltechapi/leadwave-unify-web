@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { MessageSquare, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import leadwaveLogo from "@/assets/leadwave-logo.png";
-import { Link } from "react-router-dom";
 
 const Footer = () => {
   const productLinks = [
@@ -13,14 +12,17 @@ const Footer = () => {
   ];
 
   const companyLinks = [
-    { name: "About Us", href: "/about" },
-    { name: "Contact", href: "/contact" },
-    { name: "Privacy Policy", href: "/privacy" },
-    { name: "Terms of Service", href: "/terms" }
+    { name: "About Us", href: "#" },
+    { name: "Contact", href: "#" },
+    { name: "Privacy Policy", href: "#" },
+    { name: "Terms of Service", href: "#" }
   ];
 
   const supportLinks = [
-    { name: "Documentation", href: "/documentation" }
+    { name: "Help Center", href: "#" },
+    { name: "Documentation", href: "#" },
+    { name: "API Reference", href: "#" },
+    { name: "Status Page", href: "#" }
   ];
 
   const socialLinks = [
@@ -40,10 +42,10 @@ const Footer = () => {
             <div className="flex items-center gap-3">
               <img 
                 src={leadwaveLogo} 
-                alt="Lead Wave Logo" 
+                alt="LeadWave Logo" 
                 className="w-8 h-8"
               />
-              <span className="text-xl font-bold">Lead Wave</span>
+              <span className="text-xl font-bold">LeadWave</span>
             </div>
             
             <p className="text-muted-foreground leading-relaxed max-w-md">
@@ -54,13 +56,11 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <Mail className="w-4 h-4 text-primary" />
-                <span>technovedit@gmail.com</span>
+                <span>support@leadwave.com</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                <MessageSquare className="w-4 h-4 text-green-500" />
-                <a href="https://wa.me/917261902348" className="hover:text-primary transition-colors">
-                  WhatsApp: +91 72619 02348
-                </a>
+                <Phone className="w-4 h-4 text-primary" />
+                <span>+91 (555) 123-4567</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary" />
@@ -92,12 +92,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {companyLinks.map((link, index) => (
                 <li key={index}>
-                  <Link 
-                    to={link.href}
+                  <a 
+                    href={link.href}
                     className="text-muted-foreground hover:text-primary transition-colors text-sm"
                   >
                     {link.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -109,12 +109,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {supportLinks.map((link, index) => (
                 <li key={index}>
-                  <Link 
-                    to={link.href}
+                  <a 
+                    href={link.href}
                     className="text-muted-foreground hover:text-primary transition-colors text-sm"
                   >
                     {link.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -126,7 +126,7 @@ const Footer = () => {
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-sm text-muted-foreground">
-            © 2024 Techno Ved. All rights reserved.
+            © 2025 LeadWave Desktop. All rights reserved.
           </div>
           
           {/* Social Links */}
@@ -147,6 +147,23 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Trust Indicators */}
+        <div className="mt-8 pt-8 border-t border-border/50">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <MessageSquare className="w-4 h-4 text-primary" />
+              <span>300+ Active Users</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span>•</span>
+              <span>99.9% Uptime Guarantee</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span>•</span>
+              <span>24/7 Customer Support</span>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   );
