@@ -74,7 +74,7 @@ const Hero = () => {
             
             {/* Floating Stats */}
             <div className="absolute -bottom-6 -left-6 bg-white dark:bg-card p-6 rounded-xl shadow-card animate-float" style={{ animationDelay: '1.5s' }}>
-              <div className="text-2xl font-bold text-primary">10,000+</div>
+              <div className="text-2xl font-bold text-primary">300+</div>
               <div className="text-sm text-muted-foreground">Happy Users</div>
             </div>
             
