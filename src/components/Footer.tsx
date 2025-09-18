@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { MessageSquare, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import leadwaveLogo from "@/assets/leadwave-logo.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const productLinks = [
@@ -12,17 +13,14 @@ const Footer = () => {
   ];
 
   const companyLinks = [
-    { name: "About Us", href: "#" },
-    { name: "Contact", href: "#" },
-    { name: "Privacy Policy", href: "#" },
-    { name: "Terms of Service", href: "#" }
+    { name: "About Us", href: "/about" },
+    { name: "Contact", href: "/contact" },
+    { name: "Privacy Policy", href: "/privacy" },
+    { name: "Terms of Service", href: "/terms" }
   ];
 
   const supportLinks = [
-    { name: "Help Center", href: "#" },
-    { name: "Documentation", href: "#" },
-    { name: "API Reference", href: "#" },
-    { name: "Status Page", href: "#" }
+    { name: "Documentation", href: "/documentation" }
   ];
 
   const socialLinks = [
@@ -94,12 +92,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {companyLinks.map((link, index) => (
                 <li key={index}>
-                  <a 
-                    href={link.href}
+                  <Link 
+                    to={link.href}
                     className="text-muted-foreground hover:text-primary transition-colors text-sm"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -111,12 +109,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {supportLinks.map((link, index) => (
                 <li key={index}>
-                  <a 
-                    href={link.href}
+                  <Link 
+                    to={link.href}
                     className="text-muted-foreground hover:text-primary transition-colors text-sm"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

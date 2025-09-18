@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeadWave - WhatsApp Automation Training Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --success: #4cc9f0;
+            --dark: #2b2d42;
+            --light: #f8f9fa;
+            --gray: #8d99ae;
+            --danger: #e63946;
+            --warning: #fca311;
+            --purple: #7209b7;
+            --teal: #06d6a0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+        }
+        
+        header {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(67, 97, 238, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .toc-container {
+            background: white;
+            border-radius: 15px;
+            padding: 1.8rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        
+        .toc-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light);
+        }
+        
+        .toc-header h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        
+        .toc-header i {
+            margin-right: 12px;
+            color: var(--primary);
+            font-size: 1.4rem;
+        }
+        
+        .toc-modules {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .toc-module {
+            margin-bottom: 1.2rem;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .toc-module:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .toc-module-header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .toc-module-header i {
+            transition: transform 0.3s ease;
+        }
+        
+        .toc-module-header.active i {
+            transform: rotate(180deg);
+        }
+        
+        .toc-submodules {
+            background: var(--light);
+            list-style: none;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .toc-module.active .toc-submodules {
+            max-height: 500px;
+        }
+        
+        .toc-submodule {
+            padding: 12px 20px 12px 35px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.2s ease;
+        }
+        
+        .toc-submodule:last-child {
+            border-bottom: none;
+        }
+        
+        .toc-submodule a {
+            text-decoration: none;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+        
+        .toc-submodule a:hover {
+            color: var(--primary);
+        }
+        
+        .toc-submodule a::before {
+            content: "•";
+            margin-right: 12px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .content-area {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .module-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--light);
+        }
+        
+        .module-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.8rem;
+        }
+        
+        .section-header i {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.4rem;
+            margin-right: 15px;
+            box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+        }
+        
+        .section-header h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin: 0;
+        }
+        
+        h3 {
+            color: var(--secondary);
+            margin: 1.8rem 0 1.2rem;
+            font-size: 1.4rem;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        h3::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            color: #444;
+        }
+        
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 2rem 0;
+        }
+        
+        .step-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+            border-radius: 12px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(67, 97, 238, 0.1);
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.15);
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+        }
+        
+        .step-card h4 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+        
+        .alert-box {
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.8rem 0;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .alert-box i {
+            font-size: 1.4rem;
+            margin-right: 15px;
+            min-width: 30px;
+        }
+        
+        .alert-content {
+            flex: 1;
+        }
+        
+        .alert-content h4 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .note-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+            border-left: 4px solid var(--warning);
+        }
+        
+        .tip-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left: 4px solid #4caf50;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin: 0 auto 1.2rem;
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+        
+        .feature-card h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.8rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        
+        th {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background-color: var(--light);
+        }
+        
+        tr:hover {
+            background-color: #eef2ff;
+        }
+        
+        .screenshot-placeholder {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6eeff 100%);
+            border-radius: 10px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1.8rem 0;
+            border: 2px dashed var(--primary);
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .screenshot-placeholder i {
+            font-size: 3rem;
+            margin-right: 15px;
+            opacity: 0.7;
+        }
+        
+        footer {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 2.5rem 0 1.5rem;
+            color: var(--gray);
+            font-size: 1rem;
+            border-top: 1px solid var(--light);
+            margin-top: 1rem;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.4);
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+        }
+        
+        @media (max-width: 1100px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .toc-container {
+                position: relative;
+                top: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .content-area {
+                padding: 1.8rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .steps-container,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-robot"></i> LeadWave Training Guide</h1>
+            <p class="subtitle">Comprehensive installation and usage guide for LeadWave WhatsApp automation desktop application</p>
+        </header>
+        
+        <div class="toc-container">
+            <div class="toc-header">
+                <i class="fas fa-list"></i>
+                <h2>Training Modules</h2>
+            </div>
+            <ul class="toc-modules">
+                <li class="toc-module">
+                    <div class="toc-module-header">
+                        <span>Getting Started</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <ul class="toc-submodules">
+                        <li class="toc-submodule"><a href="#introduction"><i class="fas fa-star"></i> Introduction</a></li>
+                        <li class="toc-submodule"><a href="#installation"><i class="fas fa-download"></i> Installation Guide</a></li>
+                        <li class="toc-submodule"><a href="#getting-started"><i class="fas fa-play-circle"></i> Getting Started</a></li>
+                    </ul>
+                </li>
+                <li class="toc-module">
+                    <div class="toc-module-header">
+                        <span>Core Modules</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <ul class="toc-submodules">
+                        <li class="toc-submodule"><a href="#devices"><i class="fas fa-mobile-alt"></i> Devices Module</a></li>
+                        <li class="toc-submodule"><a href="#manage-groups"><i class="fas fa-users"></i> Manage Groups</a></li>
+                        <li class="toc-submodule"><a href="#templates"><i class="fas fa-file-alt"></i> Templates Module</a></li>
+                        <li class="toc-submodule"><a href="#contacts"><i class="fas fa-address-book"></i> Contacts Module</a></li>
+                    </ul>
+                </li>
+                <li class="toc-module">
+                    <div class="toc-module-header">
+                        <span>Communication</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <ul class="toc-submodules">
+                        <li class="toc-submodule"><a href="#bulk-messages"><i class="fas fa-bullhorn"></i> Bulk Messages</a></li>
+                        <li class="toc-submodule"><a href="#auto-reply"><i class="fas fa-reply"></i> Auto Reply</a></li>
+                        <li class="toc-submodule"><a href="#chatbot"><i class="fas fa-comments"></i> Chatbot</a></li>
+                        <li class="toc-submodule"><a href="#ai-chatbot"><i class="fas fa-brain"></i> AI Chatbot</a></li>
+                    </ul>
+                </li>
+                <li class="toc-module">
+                    <div class="toc-module-header">
+                        <span>Advanced Features</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <ul class="toc-submodules">
+                        <li class="toc-submodule"><a href="#call-responder"><i class="fas fa-phone-alt"></i> Call Responder</a></li>
+                        <li class="toc-submodule"><a href="#group-grabber"><i class="fas fa-user-friends"></i> Group Grabber</a></li>
+                        <li class="toc-submodule"><a href="#reports"><i class="fas fa-chart-bar"></i> Reports</a></li>
+                        <li class="toc-submodule"><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+                    </ul>
+                </li>
+                <li class="toc-module">
+                    <div class="toc-module-header">
+                        <span>Support</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <ul class="toc-submodules">
+                        <li class="toc-submodule"><a href="#troubleshooting"><i class="fas fa-exclamation-triangle"></i> Troubleshooting</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="content-area">
+            <section id="introduction" class="module-section">
+                <div class="section-header">
+                    <i class="fas fa-star"></i>
+                    <h2>Introduction</h2>
+                </div>
+                <p>Welcome to LeadWave, a powerful WhatsApp automation desktop application built with Electron.js and the Baileys library. This comprehensive guide will walk you through the installation process and teach you how to use all the features of LeadWave to automate your WhatsApp communications.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>Multi-Device Support</h4>
+                        <p>Connect and manage multiple WhatsApp accounts simultaneously from a single interface.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Group Management</h4>
+                        <p>Create, manage, and automate interactions with WhatsApp groups and communities.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-comment-alt"></i>
+                        </div>
+                        <h4>Advanced Messaging</h4>
+                        <p>Send text, media, interactive messages, polls, and more with powerful templates.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4>Automation Features</h4>
+                        <p>Auto-reply, chatbots, and call responders to handle communications automatically.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Analytics & Reporting</h4>
+                        <p>Track message statistics, campaign performance, and device activity.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>AI Integration</h4>
+                        <p>Leverage OpenAI and Google Gemini for intelligent, context-aware conversations.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="installation" class="module-section">
+                <div class="section-header">
+                    <i class="fas fa-download"></i>
+                    <h2>Installation Guide</h2>
+                </div>
+                
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>System Requirements</h4>
+                        <p>Before installing LeadWave, ensure your system meets the following requirements:</p>
+                        <ul>
+                            <li><strong>OS:</strong> Windows 10+</li>
+                            <li><strong>Processor:</strong> Intel Core i3 or equivalent</li>
+                            <li><strong>Memory:</strong> 4 GB RAM minimum (8 GB recommended)</li>
+                            <li><strong>Storage:</strong> 500 MB available space</li>
+                            <li><strong>Internet:</strong> Required for activation and connectivity</li>
+                        </ul>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>Downloading the Installer</h4>
+                        <p>Download the LeadWave installer from the official source or your licensed provider.</p>
+                        <div class="alert-box tip-box">
+                            <i class="fas fa-lightbulb"></i>
+                            <div class="alert-content">
+                                <h4>Pro Tip</h4>
+                                <p>Always download from official sources to ensure security and authenticity.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h4>Installation Process</h4>
+                        <ol>
+                            <li>Locate the downloaded installer file</li>
+                            <li>Double-click to begin installation</li>
+                            <li>Accept the license agreement</li>
+                            <li>Choose installation directory</li>
+                            <li>Click "Install" and wait for completion</li>
+                            <li>Click "Finish" to complete</li>
+                        </ol>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h4>First Launch</h4>
+                        <p>After installation, launch LeadWave and:</p>
+                        <ul>
+                            <li>Allow through firewall if prompted</li>
+                            <li>Grant necessary permissions</li>
+                            <li>Complete initial registration</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="alert-box note-box">
+                    <i class="fas fa-info-circle"></i>
+                    <div class="alert-content">
+                        <h4>Note</h4>
+                        <p>LeadWave requires a valid license to operate. If you don't have a license, you may be able to use a trial version if available.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="getting-started" class="module-section">
+                <div class="section-header">
+                    <i class="fas fa-play-circle"></i>
+                    <h2>Getting Started</h2>
+                </div>
+                
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>User Interface Overview</h4>
+                        <p>When you first launch LeadWave, you'll see a clean, modern interface with:</p>
+                        <ul>
+                            <li><strong>Sidebar Navigation:</strong> Access all modules</li>
+                            <li><strong>Main Content Area:</strong> View and interact with modules</li>
+                            <li><strong>Header:</strong> Quick actions and profile info</li>
+                        </ul>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>License Activation</h4>
+                        <p>If setting up for the first time:</p>
+                        <ol>
+                            <li>Click on "License Registration"</li>
+                            <li>Enter your license key or register for trial</li>
+                            <li>Follow on-screen instructions</li>
+                        </ol>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h4>Initial Configuration</h4>
+                        <p>After activation, configure basic settings:</p>
+                        <ul>
+                            <li>Set preferred language in Settings</li>
+                            <li>Configure notification preferences</li>
+                            <li>Set up backup and restore options</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="devices" class="module-section">
+                <div class="section-header">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h2>Devices Module</h2>
+                </div>
+                
+                <p>The Devices module is where you manage your WhatsApp connections. You can connect multiple WhatsApp accounts to LeadWave simultaneously.</p>
+                
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Adding a New Device</h4>
+                        <ol>
+                            <li>Click on "Devices" in sidebar navigation</li>
+                            <li>Click the "Add Device" button</li>
+                            <li>Enter a descriptive name for your device/session</li>
+                            <li>Choose between QR Code or Pairing Code authentication</li>
+                        </ol>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>QR Code Connection</h4>
+                        <ol>
+                            <li>After creating a device, click "Show QR Code"</li>
+                            <li>Open WhatsApp on your phone</li>
+                            <li>Go to Settings > Linked Devices > Link a Device</li>
+                            <li>Scan the QR code displayed in LeadWave</li>
+                            <li>Wait for the connection to establish</li>
+                        </ol>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h4>Pairing Code Connection</h4>
+                        <ol>
+                            <li>Select "Use Pairing Code Instead" when adding a device</li>
+                            <li>Enter your phone number with country code</li>
+                            <li>Click "Get Code" to generate a pairing code</li>
+                            <li>On your phone, go to Settings > Linked Devices > Link with Phone Number</li>
+                            <li>Enter the pairing code when prompted</li>
+                        </ol>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h4>Managing Connected Devices</h4>
+                        <p>Once connected, you can perform various actions:</p>
+                        <ul>
+                            <li><strong>Disconnect:</strong> Temporarily disconnect without losing session data</li>
+                            <li><strong>Reconnect:</strong> Reconnect a disconnected session</li>
+                            <li><strong>Delete:</strong> Permanently remove a device and all associated data</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="alert-box tip-box">
+                    <i class="fas fa-lightbulb"></i>
+                    <div class="alert-content">
+                        <h4>Pro Tip</h4>
+                        <p>Connected devices will automatically reconnect when you restart LeadWave, maintaining your session.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="manage-groups" class="module-section">
+                <div class="section-header">
+                    <i class="fas fa-users"></i>
+                    <h2>Manage Groups Module</h2>
+                </div>
+                
+                <p>The Manage Groups module is a comprehensive WhatsApp group management system that allows you to create and manage groups with advanced features.</p>
+                
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Accessing the Module</h4>
+                        <ol>
+                            <li>Click on "Manage Group" in the sidebar navigation</li>
+                            <li>Select a WhatsApp session from the dropdown</li>
+                            <li>Click "Refresh Groups" to load your existing groups</li>
+                        </ol>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>Creating a New Group</h4>
+                        <ol>
+                            <li>Click the "Create Group" button</li>
+                            <li>Enter a group name (required)</li>
+                            <li>Optionally add a group description</li>
+                            <li>Enter participant phone numbers (one per line, with country codes)</li>
+                            <li>Click "Create Group"</li>
+                        </ol>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h4>Managing Group Participants</h4>
+                        <p>For any existing group, you can manage participants by clicking the user icon:</p>
+                        <ul>
+                            <li><strong>Add Participants:</strong> Add new members to the group</li>
+                            <li><strong>Remove Participants:</strong> Remove members from the group</li>
+                            <li><strong>Promote to Admin:</strong> Make members group administrators</li>
+                            <li><strong>Demote from Admin:</strong> Remove admin privileges from members</li>
+                        </ul>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h4>Sending Group Messages</h4>
+                        <ol>
+                            <li>Click the message icon next to any group</li>
+                            <li>Choose mention options:
+                                <ul>
+                                    <li>No mentions</li>
+                                    <li>Mention all (@everyone)</li>
+                                    <li>Mention admins only</li>
+                                </ul>
+                            </li>
+                            <li>Type your message</li>
+                            <li>Click "Send Message"</li>
+                        </ol>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">5</div>
+                        <h4>Bulk Group Operations</h4>
+                        <p>You can perform actions on multiple groups simultaneously:</p>
+                        <ol>
+                            <li>Select multiple groups using checkboxes</li>
+                            <li>Click "Bulk Actions" button</li>
+                            <li>Choose an action:
+                                <ul>
+                                    <li>Update Description</li>
+                                    <li>Update Group Name</li>
+                                    <li>Update Group Photo</li>
+                                </ul>
+                            </li>
+                            <li>Enter the new value or upload a new photo</li>
+                            <li>Click "Apply to All"</li>
+                        </ol>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">6</div>
+                        <h4>Group Settings</h4>
+                        <p>Manage group settings by clicking the settings icon:</p>
+                        <ul>
+                            <li><strong>Announcement Mode:</strong> Only admins can send messages</li>
+                            <li><strong>Disappearing Messages:</strong> Messages disappear after 7 days</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="alert-box warning-box">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div class="alert-content">
+                        <h4>Important</h4>
+                        <p>WhatsApp only allows adding known contacts to groups directly. Unknown numbers will be rejected. Add numbers to your WhatsApp contacts first or manually add them to the group once via the WhatsApp app.</p>
+                    </div>
+                </div>
+                
+                <div class="alert-box tip-box">
+                    <i class="fas fa-lightbulb"></i>
+                    <div class="alert-content">
+                        <h4>Pro Tip</h4>
+                        <p>Use the search function to quickly find specific groups by name or ID.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="templates" class="module-section">
+                <div class="section-header">
+                    <i class="fas fa-file-alt"></i>
+                    <h2>Templates Module</h2>
+                </div>
+                
+                <p>The Templates module allows you to create and manage message templates for various WhatsApp message types.</p>
+                
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Supported Template Types</h4>
+                        <ul>
+                            <li><strong>Text Message:</strong> Simple text with variable support</li>
+                            <li><strong>Message + Image:</strong> Text with image attachment</li>
+                            <li><strong>Message + Document:</strong> Text with document attachment</li>
+                            <li><strong>Message + Contact:</strong> Text with contact card</li>
+                            <li><strong>Message + Poll:</strong> Interactive poll with multiple options</li>
+                            <li><strong>Message + Buttons:</strong> Interactive message with clickable buttons</li>
+                            <li><strong>Message + List:</strong> Interactive message with selectable list</li>
+                            <li><strong>Message + Location:</strong> Text with location coordinates</li>
+                            <li><strong>Message + Video:</strong> Text with video attachment</li>
+                            <li><strong>Message + Audio:</strong> Text with audio attachment</li>
+                        </ul>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>Creating a Template</h4>
+                        <ol>
+                            <li>Click on "Templates" in the sidebar navigation</li>
+                            <li>Click "Add Template"</li>
+                            <li>Select a template type</li>
+                            <li>Enter a template name and category</li>
+                            <li>Fill in the content and any additional fields specific to the template type</li>
+                            <li>Use {{variable}} syntax for dynamic content</li>
+                            <li>Click "Save"</li>
+                        </ol>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h4>Using Templates</h4>
+                        <ol>
+                            <li>In any template card, click "Send"</li>
+                            <li>Select a WhatsApp session</li>
+                            <li>Enter the recipient's phone number</li>
+                            <li>Fill in any template variables</li>
+                            <li>Preview the message</li>
+                            <li>Click "Send Message"</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="contacts" class="module-section">
+                <div class="section-header">
+                    <i class="fas fa-address-book"></i>
+                    <h2>Contacts Module</h2>
+                </div>
+                
+                <p>The Contacts module helps you organize and manage your WhatsApp contacts and contact groups.</p>
+                
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Adding Contacts</h4>
+                        <ol>
+                            <li>Click on "Contacts" in the sidebar navigation</li>
+                            <li>Click "Add Contact"</li>
+                            <li>Fill in contact details (name, phone, email, company, etc.)</li>
+                            <li>Click "Save"</li>
+                        </ol>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>Creating Contact Groups</h4>
+                        <ol>
+                            <li>Click "Contact Groups" tab</li>
+                            <li>Click "New Group"</li>
+                            <li>Enter group name and description</li>
+                            <li>Add contacts to the group</li>
+                            <li>Click "Save"</li>
+                        </ol>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h4>Importing/Exporting Contacts</h4>
+                        <p>You can import contacts from CSV files or export your contact list:</p>
+                        <ul>
+                            <li>Click "Import Contacts" to upload a CSV file</li>
+                            <li>Click "Export Contacts" to download your contacts as CSV</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="bulk-messages" class="module-section">
+                <div class="section-header">
+                    <i class="fas fa-bullhorn"></i>
+                    <h2>Bulk Messages Module</h2>
+                </div>
+                
+                <p>Send messages to multiple contacts or groups simultaneously with the Bulk Messages module.</p>
+                
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Creating a Bulk Campaign</h4>
+                        <ol>
+                            <li>Click on "Bulk Messages" in the sidebar navigation</li>
+                            <li>Click "Create Campaign"</li>
+                            <li>Enter campaign name and description</li>
+                            <li>Select a WhatsApp session</li>
+                            <li>Choose recipients (individual contacts or contact groups)</li>
+                            <li>Select a template or create a new message</li>
+                            <li>Set scheduling options if needed</li>
+                            <li>Click "Send" or "Schedule"</li>
+                        </ol>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>Monitoring Campaigns</h4>
+                        <p>Track your campaign performance in real-time:</p>
+                        <ul>
+                            <li><strong>Total Messages:</strong> Number of messages in the campaign</li>
+                            <li><strong>Sent:</strong> Messages successfully sent</li>
+                            <li><strong>Failed:</strong> Messages that failed to send</li>
+                            <li><strong>Pending:</strong> Messages waiting to be sent</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="auto-reply" class="module-section">
+                <div class="section-header">
+                    <i class="fas fa-reply"></i>
+                    <h2>Auto Reply Module</h2>
+                </div>
+                
+                <p>Set up automated responses to incoming WhatsApp messages based on keywords or message content.</p>
+                
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Creating an Auto Reply Rule</h4>
+                        <ol>
+                            <li>Click on "Auto Reply" in the sidebar navigation</li>
+                            <li>Click "Create Rule"</li>
+                            <li>Enter a rule name and description</li>
+                            <li>Select WhatsApp sessions the rule applies to</li>
+                            <li>Set trigger conditions (keywords, message content, etc.)</li>
+                            <li>Define the response (text, template, or media)</li>
+                            <li>Set cooldown period to prevent spam</li>
+                            <li>Activate the rule</li>
+                        </ol>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>Managing Rules</h4>
+                        <p>You can edit, duplicate, or delete existing rules as needed. Use the search and filter options to find specific rules.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="chatbot" class="module-section">
+                <div class="section-header">
+                    <i class="fas fa-comments"></i>
+                    <h2>Chatbot Module</h2>
+                </div>
+                
+                <p>Create sophisticated automated conversation flows with the Chatbot module.</p>
+                
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Creating a Chatbot Flow</h4>
+                        <ol>
+                            <li>Click on "Chatbot Flows" in the sidebar navigation</li>
+                            <li>Click "Create Chatbot"</li>
+                            <li>Enter chatbot name and description</li>
+                            <li>Select WhatsApp sessions</li>
+                            <li>Design your conversation flow using the visual editor</li>
+                            <li>Add nodes for different conversation paths</li>
+                            <li>Set triggers to start the chatbot</li>
+                            <li>Activate the chatbot</li>
+                        </ol>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>Chatbot Node Types</h4>
+                        <ul>
+                            <li><strong>Message Node:</strong> Send a message to the user</li>
+                            <li><strong>Question Node:</strong> Ask the user a question and wait for a response</li>
+                            <li><strong>Condition Node:</strong> Branch the conversation based on user responses</li>
+                            <li><strong>Action Node:</strong> Perform specific actions (save data, send to webhook, etc.)</li>
+                            <li><strong>End Node:</strong> End the conversation</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="ai-chatbot" class="module-section">
+                <div class="section-header">
+                    <i class="fas fa-brain"></i>
+                    <h2>AI Chatbot Module</h2>
+                </div>
+                
+                <p>Leverage artificial intelligence to create intelligent, context-aware conversations.</p>
+                
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Setting up AI Providers</h4>
+                        <ol>
+                            <li>Click on "AI Chatbot" in the sidebar navigation</li>
+                            <li>Go to the "Providers" tab</li>
+                            <li>Click "Add Provider"</li>
+                            <li>Choose between OpenAI or Google Gemini</li>
+                            <li>Enter your API key</li>
+                            <li>Select a model and configure settings</li>
+                            <li>Save the provider configuration</li>
+                        </ol>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>Creating an AI Chatbot</h4>
+                        <ol>
+                            <li>Go to the "Chatbots" tab</li>
+                            <li>Click "Create Chatbot"</li>
+                            <li>Enter chatbot name and description</li>
+                            <li>Select an AI provider</li>
+                            <li>Define personality and industry specialization</li>
+                            <li>Set system prompt to define behavior</li>
+                            <li>Select WhatsApp sessions</li>
+                            <li>Activate the chatbot</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="call-responder" class="module-section">
+                <div class="section-header">
+                    <i class="fas fa-phone-alt"></i>
+                    <h2>Call Responder Module</h2>
+                </div>
+                
+                <p>Automatically respond to incoming, outgoing, missed, and rejected calls with custom messages.</p>
+                
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Creating a Call Responder Rule</h4>
+                        <ol>
+                            <li>Click on "Call Responder" in the sidebar navigation</li>
+                            <li>Click "Create Rule"</li>
+                            <li>Enter rule name</li>
+                            <li>Select call types (received, outgoing, missed, rejected)</li>
+                            <li>Select WhatsApp session</li>
+                            <li>Define the response message or template</li>
+                            <li>Activate the rule</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="group-grabber" class="module-section">
+                <div class="section-header">
+                    <i class="fas fa-user-friends"></i>
+                    <h2>Group Grabber Module</h2>
+                </div>
+                
+                <p>Extract and manage information about WhatsApp groups and communities you participate in.</p>
+                
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Using Group Grabber</h4>
+                        <ol>
+                            <li>Click on "Group Grabber" in the sidebar navigation</li>
+                            <li>Select a WhatsApp session</li>
+                            <li>Click "Refresh" to fetch groups</li>
+                            <li>Use search, filters, and sorting to find specific groups</li>
+                            <li>View group details by clicking on any group</li>
+                            <li>Export data using the various export options</li>
+                        </ol>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>Export Options</h4>
+                        <ul>
+                            <li><strong>Groups Summary:</strong> Basic group information in CSV format</li>
+                            <li><strong>Participants List:</strong> Detailed participant list for Excel analysis</li>
+                            <li><strong>JSON Report:</strong> Comprehensive JSON report with full metadata</li>
+                            <li><strong>Invite Links:</strong> Generate and export invite links for admin groups</li>
+                            <li><strong>Group IDs:</strong> Copy group IDs to clipboard</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="reports" class="module-section">
+                <div class="section-header">
+                    <i class="fas fa-chart-bar"></i>
+                    <h2>Reports Module</h2>
+                </div>
+                
+                <p>Monitor and analyze your WhatsApp automation performance with detailed reports.</p>
+                
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Report Types</h4>
+                        <ul>
+                            <li><strong>Campaign Reports:</strong> Performance statistics for bulk messaging campaigns</li>
+                            <li><strong>Contact Group Reports:</strong> Analytics for contact groups and messaging stats</li>
+                            <li><strong>Message Statistics:</strong> Breakdown of message types and delivery status</li>
+                            <li><strong>Device Reports:</strong> Performance and activity reports for WhatsApp devices</li>
+                            <li><strong>Template Reports:</strong> Usage and performance analytics for message templates</li>
+                        </ul>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>Exporting Reports</h4>
+                        <p>You can export any report in CSV or JSON format for further analysis:</p>
+                        <ol>
+                            <li>Select the report type and date range</li>
+                            <li>Click "Export CSV" or "Export JSON"</li>
+                            <li>Save the file to your desired location</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="settings" class="module-section">
+                <div class="section-header">
+                    <i class="fas fa-cog"></i>
+                    <h2>Settings Module</h2>
+                </div>
+                
+                <p>Configure application-wide settings and preferences.</p>
+                
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>General Settings</h4>
+                        <ul>
+                            <li><strong>App Theme:</strong> Switch between light, dark, or system theme</li>
+                            <li><strong>Language:</strong> Change the application language</li>
+                            <li><strong>Notifications:</strong> Configure notification preferences</li>
+                        </ul>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>Backup & Restore</h4>
+                        <p>Protect your data with automated backups:</p>
+                        <ul>
+                            <li>Schedule automatic backups daily, weekly, or monthly</li>
+                            <li>Create manual backups at any time</li>
+                            <li>Restore from previous backups when needed</li>
+                            <li>Encrypt backups with a password for added security</li>
+                        </ul>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h4>Data Maintenance</h4>
+                        <p>Keep your application running smoothly by cleaning up old data:</p>
+                        <ul>
+                            <li>Delete old activity logs</li>
+                            <li>Clear auto-reply cooldown data</li>
+                            <li>Remove old chatbot conversations</li>
+                            <li>Clean up inactive contacts</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="troubleshooting" class="module-section">
+                <div class="section-header">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h2>Troubleshooting</h2>
+                </div>
+                
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Common Issues and Solutions</h4>
+                        
+                        <h4>Device Connection Problems</h4>
+                        <ul>
+                            <li><strong>Issue:</strong> QR code won't scan
+                                <br><strong>Solution:</strong> Ensure you're scanning within 30 seconds and have a stable internet connection</li>
+                            <li><strong>Issue:</strong> Device shows as disconnected
+                                <br><strong>Solution:</strong> Click "Reconnect" or restart the application</li>
+                            <li><strong>Issue:</strong> Pairing code not working
+                                <br><strong>Solution:</strong> Verify phone number format and ensure WhatsApp is updated</li>
+                        </ul>
+                        
+                        <h4>Message Sending Issues</h4>
+                        <ul>
+                            <li><strong>Issue:</strong> Messages failing to send
+                                <br><strong>Solution:</strong> Check if the recipient's number is correct and if your device is connected</li>
+                            <li><strong>Issue:</strong> Delayed message delivery
+                                <br><strong>Solution:</strong> WhatsApp may rate-limit messages; try sending fewer messages</li>
+                        </ul>
+                        
+                        <h4>Template Problems</h4>
+                        <ul>
+                            <li><strong>Issue:</strong> Variables not replacing
+                                <br><strong>Solution:</strong> Ensure variable names match exactly and are enclosed in {{ }}</li>
+                            <li><strong>Issue:</strong> Media not attaching
+                                <br><strong>Solution:</strong> Check file formats and sizes; WhatsApp has limitations on media types</li>
+                        </ul>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>Getting Support</h4>
+                        <p>If you encounter issues not covered in this guide:</p>
+                        <ul>
+                            <li>Check the application logs for error messages</li>
+                            <li>Restart the application</li>
+                            <li>Ensure you're using the latest version</li>
+                            <li>Contact support with detailed information about the issue</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <footer>
+            <p>© 2025 LeadWave. All rights reserved.</p>
+            <p>This documentation is provided for licensed users of the LeadWave WhatsApp Automation application.</p>
+        </footer>
+        
+        <div class="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+    </div>
+    
+    <script>
+        // Toggle TOC modules
+        document.querySelectorAll('.toc-module-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const module = header.parentElement;
+                module.classList.toggle('active');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Initialize first module as active
+        document.querySelector('.toc-module').classList.add('active');
+    </script>
+</body>
+</html>

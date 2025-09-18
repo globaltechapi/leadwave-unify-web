@@ -254,6 +254,7 @@ const Pricing = () => {
                   <Button 
                     variant={plan.popular ? "hero" : "outline"} 
                     className="w-full group"
+                    onClick={handleWhatsAppPurchase}
                   >
                     Get Started
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
