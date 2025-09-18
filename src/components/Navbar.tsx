@@ -2,15 +2,18 @@ import { Button } from "@/components/ui/button";
 import leadwaveLogo from "@/assets/leadwave-logo.png";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: "Features", href: "#features" },
-    { name: "Video", href: "#video" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "Demo", href: "#demo" },
+    { name: "Features", href: "#features", type: "anchor" },
+    { name: "Video", href: "#video", type: "anchor" },
+    { name: "Pricing", href: "#pricing", type: "anchor" },
+    { name: "Demo", href: "#demo", type: "anchor" },
+    { name: "About Us", href: "/about", type: "link" },
+    { name: "Contact", href: "/contact", type: "link" },
   ];
 
   return (
@@ -32,13 +35,23 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                {item.name}
-              </a>
+              item.type === "link" ? (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {item.name}
+                </a>
+              )
             ))}
           </div>
 
@@ -65,14 +78,25 @@ const Navbar = () => {
           <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-muted-foreground hover:text-primary transition-colors py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
+                item.type === "link" ? (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="text-muted-foreground hover:text-primary transition-colors py-2"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="text-muted-foreground hover:text-primary transition-colors py-2"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                )
               ))}
               <Button variant="hero" size="default" className="mt-2">
                 Download App
