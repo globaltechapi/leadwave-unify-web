@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Play, CheckCircle, Clock, Lightbulb, ArrowRight, X } from "lucide-react";
-import dashboardImage from "@/assets/multi-device.png";
+import videoThumbnail from "@/assets/video-thumbnail.png";
 import { useState } from "react";
 
 const VideoSection = () => {
@@ -53,8 +53,8 @@ const VideoSection = () => {
                     onClick={() => setIsVideoPlaying(true)}
                   >
                     <img 
-                      src={dashboardImage} 
-                      alt="LeadWave Dashboard Interface"
+                      src={videoThumbnail} 
+                      alt="LeadWave Features Overview"
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors flex items-center justify-center">
