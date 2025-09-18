@@ -131,9 +131,9 @@ const Documentation = () => {
           <div className="w-20 h-20 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-6">
             <BookOpen className="w-10 h-10 text-white" />
           </div>
-          <h1 className="text-4xl font-bold mb-4">LeadWave Training Guide</h1>
+          <h1 className="text-4xl font-bold mb-4">Lead Wave Training Guide</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive installation and usage guide for LeadWave WhatsApp automation desktop application
+            Comprehensive installation and usage guide for Lead Wave WhatsApp automation desktop application
           </p>
           <Badge className="mt-4 bg-primary/10 text-primary border-primary/20">
             <Download className="w-4 h-4 mr-2" />
@@ -194,8 +194,8 @@ const Documentation = () => {
               </CardHeader>
               <CardContent className="space-y-6">
                 <p className="text-muted-foreground leading-relaxed">
-                  Welcome to LeadWave, a powerful WhatsApp automation desktop application built with Electron.js and the Baileys library. 
-                  This comprehensive guide will walk you through the installation process and teach you how to use all the features of LeadWave to automate your WhatsApp communications.
+                  Welcome to Lead Wave, a powerful WhatsApp automation desktop application built with Electron.js and the Baileys library. 
+                  This comprehensive guide will walk you through the installation process and teach you how to use all the features of Lead Wave to automate your WhatsApp communications.
                 </p>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -232,7 +232,7 @@ const Documentation = () => {
                       <h3 className="text-lg font-semibold">System Requirements</h3>
                     </div>
                     <div className="ml-11 space-y-2">
-                      <p className="text-muted-foreground">Before installing LeadWave, ensure your system meets these requirements:</p>
+                      <p className="text-muted-foreground">Before installing Lead Wave, ensure your system meets these requirements:</p>
                       <ul className="text-sm space-y-1 text-muted-foreground">
                         <li><strong>OS:</strong> Windows 10+</li>
                         <li><strong>Processor:</strong> Intel Core i3 or equivalent</li>
@@ -267,7 +267,7 @@ const Documentation = () => {
                     <div>
                       <h4 className="font-medium text-amber-800 dark:text-amber-200 mb-1">Note</h4>
                       <p className="text-sm text-amber-700 dark:text-amber-300">
-                        LeadWave requires a valid license to operate. If you don't have a license, you may be able to use a trial version if available.
+                        Lead Wave requires a valid license to operate. If you don't have a license, you may be able to use a trial version if available.
                       </p>
                     </div>
                   </div>

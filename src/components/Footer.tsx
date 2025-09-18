@@ -40,10 +40,10 @@ const Footer = () => {
             <div className="flex items-center gap-3">
               <img 
                 src={leadwaveLogo} 
-                alt="LeadWave Logo" 
+                alt="Lead Wave Logo" 
                 className="w-8 h-8"
               />
-              <span className="text-xl font-bold">LeadWave</span>
+              <span className="text-xl font-bold">Lead Wave</span>
             </div>
             
             <p className="text-muted-foreground leading-relaxed max-w-md">
@@ -126,7 +126,7 @@ const Footer = () => {
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-sm text-muted-foreground">
-            © 2024 LeadWave Desktop. All rights reserved.
+            © 2024 Techno Ved. All rights reserved.
           </div>
           
           {/* Social Links */}

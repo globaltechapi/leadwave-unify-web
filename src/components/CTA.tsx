@@ -32,7 +32,7 @@ const CTA = () => {
             </h2>
             
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Join 300+ businesses already using LeadWave Desktop to
+              Join 300+ businesses already using Lead Wave Desktop to
               automate their WhatsApp workflows and boost productivity.
             </p>
           </div>

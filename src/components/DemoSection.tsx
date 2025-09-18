@@ -9,7 +9,7 @@ const DemoSection = () => {
     {
       icon: Download,
       title: "Download & Install",
-      description: "Download the LeadWave desktop application file and install it on your computer. The installation process is quick and straightforward."
+      description: "Download the Lead Wave desktop application file and install it on your computer. The installation process is quick and straightforward."
     },
     {
       icon: Key,
@@ -28,13 +28,13 @@ const DemoSection = () => {
     },
     {
       icon: Play,
-      title: "Start Using LeadWave",
+      title: "Start Using Lead Wave",
       description: "Once activated, you can immediately start automating your WhatsApp business communications and managing contacts."
     }
   ];
 
   const handleWhatsAppContact = () => {
-    window.open("https://wa.me/917261902348?text=Hi! I would like to get a demo of LeadWave. Here is my license code:", "_blank");
+    window.open("https://wa.me/917261902348?text=Hi! I would like to get a demo of Lead Wave. Here is my license code:", "_blank");
   };
 
   const handleDownload = () => {
@@ -48,13 +48,13 @@ const DemoSection = () => {
         <div className="text-center mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
             <Play className="w-4 h-4" />
-            Try LeadWave Now
+            Try Lead Wave Now
           </div>
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent">
             Get Your Free Demo
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Experience LeadWave's powerful automation features firsthand. Follow these simple steps to get started with your free demo today.
+            Experience Lead Wave's powerful automation features firsthand. Follow these simple steps to get started with your free demo today.
           </p>
         </div>
 
@@ -81,7 +81,7 @@ const DemoSection = () => {
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold mb-4">Complete Activation Process</h3>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Follow these visual steps to activate your LeadWave application and start automating your WhatsApp communications.
+              Follow these visual steps to activate your Lead Wave application and start automating your WhatsApp communications.
             </p>
           </div>
           
@@ -103,7 +103,7 @@ const DemoSection = () => {
                 <div className="relative bg-background border border-border/50 rounded-xl p-3 shadow-xl">
                   <img 
                     src={licenseScreen} 
-                    alt="LeadWave License Screen - Copy your unique license code"
+                    alt="Lead Wave License Screen - Copy your unique license code"
                     className="w-full rounded-lg shadow-md"
                   />
                 </div>
@@ -127,7 +127,7 @@ const DemoSection = () => {
                 <div className="relative bg-background border border-border/50 rounded-xl p-3 shadow-xl">
                   <img 
                     src={activationScreen} 
-                    alt="LeadWave Activation Screen - Enter your license activation code"
+                    alt="Lead Wave Activation Screen - Enter your license activation code"
                     className="w-full rounded-lg shadow-md"
                   />
                 </div>
@@ -145,7 +145,7 @@ const DemoSection = () => {
               onClick={handleDownload}
             >
               <Download className="w-5 h-5 mr-2" />
-              Download LeadWave
+              Download Lead Wave
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
             

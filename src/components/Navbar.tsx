@@ -24,11 +24,11 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
             <img 
               src={leadwaveLogo} 
-              alt="LeadWave Logo" 
+              alt="Lead Wave Logo" 
               className="w-11 h-11"
             />
             <span className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              LeadWave
+              Lead Wave
             </span>
           </div>
 

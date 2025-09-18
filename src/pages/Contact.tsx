@@ -57,7 +57,7 @@ const Contact = () => {
             </div>
             <h1 className="text-4xl font-bold mb-4">Get in Touch</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Need help with LeadWave? Our support team is here to assist you. 
+              Need help with Lead Wave? Our support team is here to assist you. 
               Choose your preferred way to reach us and we'll get back to you promptly.
             </p>
             <Badge className="mt-4 bg-green-100 text-green-600 border-green-200">
@@ -123,7 +123,7 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2">
-                    <p className="font-medium">LeadWave Technologies</p>
+                    <p className="font-medium">Lead Wave Technologies</p>
                     <p className="text-muted-foreground">Mumbai, Maharashtra</p>
                     <p className="text-muted-foreground">India</p>
                   </div>

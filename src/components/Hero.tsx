@@ -24,7 +24,7 @@ const Hero = () => {
             
             <div className="space-y-4">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                LeadWave{" "}
+                Lead Wave{" "}
                 <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                   WhatsApp Desktop
                 </span>
@@ -67,7 +67,7 @@ const Hero = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-glow">
               <img
                 src={heroImage}
-                alt="LeadWave WhatsApp Desktop Application Loading Screen"
+                alt="Lead Wave WhatsApp Desktop Application Loading Screen"
                 className="w-full h-auto animate-float rounded-xl"
                 style={{ animationDelay: '1s' }}
               />

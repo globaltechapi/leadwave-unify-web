@@ -5,7 +5,7 @@ import { Check, ArrowRight, Zap, MessageSquare, Bot, Users, Phone, FileText, Sta
 
 const Pricing = () => {
   const mainProduct = {
-    name: "LeadWave Desktop Application",
+    name: "Lead Wave Desktop Application",
     subtitle: "Complete WhatsApp Marketing Solution",
     price: "₹8,999",
     originalPrice: "₹12,999",
@@ -54,7 +54,7 @@ const Pricing = () => {
   };
 
   const handleWhatsAppPurchase = () => {
-    const message = "Hi! I'm interested in purchasing LeadWave Desktop Application (₹8,999) with Key Generator. Please provide purchase details.";
+    const message = "Hi! I'm interested in purchasing Lead Wave Desktop Application (₹8,999) with Key Generator. Please provide purchase details.";
     window.open(`https://wa.me/917261902348?text=${encodeURIComponent(message)}`, "_blank");
   };
 

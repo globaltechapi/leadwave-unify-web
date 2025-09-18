@@ -38,7 +38,7 @@ const VideoSection = () => {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            See LeadWave in action! Watch our comprehensive tutorial and discover how easy it is to automate your WhatsApp business communication.
+            See Lead Wave in action! Watch our comprehensive tutorial and discover how easy it is to automate your WhatsApp business communication.
           </p>
         </div>
 
@@ -54,7 +54,7 @@ const VideoSection = () => {
                   >
                     <img 
                       src={videoThumbnail} 
-                      alt="LeadWave Features Overview"
+                      alt="Lead Wave Features Overview"
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -67,7 +67,7 @@ const VideoSection = () => {
                   <div className="relative aspect-video">
                     <iframe
                       src="https://www.youtube.com/embed/-IawA-meopM?autoplay=1"
-                      title="LeadWave Tutorial"
+                      title="Lead Wave Tutorial"
                       className="w-full h-full"
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -106,10 +106,10 @@ const VideoSection = () => {
             <div className="pt-6">
               <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
               <p className="text-muted-foreground mb-6">
-                Download LeadWave now and start automating your WhatsApp business communication
+                Download Lead Wave now and start automating your WhatsApp business communication
               </p>
               <Button variant="hero" size="lg" className="group">
-                Download LeadWave Now
+                Download Lead Wave Now
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>

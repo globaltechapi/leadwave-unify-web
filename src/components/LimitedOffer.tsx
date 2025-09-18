@@ -30,7 +30,7 @@ const LimitedOffer = () => {
             </h2>
             
             <p className="text-xl text-muted-foreground">
-              Get LeadWave at an unbeatable price
+              Get Lead Wave at an unbeatable price
             </p>
           </div>
 

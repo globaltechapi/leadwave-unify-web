@@ -49,7 +49,7 @@ const About = () => {
             <div className="w-20 h-20 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-6">
               <MessageSquare className="w-10 h-10 text-white" />
             </div>
-            <h1 className="text-4xl font-bold mb-4">About LeadWave</h1>
+            <h1 className="text-4xl font-bold mb-4">About Lead Wave</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               We're passionate about revolutionizing business communication through intelligent WhatsApp automation. 
               Our mission is to empower businesses of all sizes with tools that streamline their messaging workflows and enhance customer engagement.
@@ -86,12 +86,12 @@ const About = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
-                  LeadWave was born from the recognition that businesses needed better tools to manage their WhatsApp communications at scale. 
+                  Lead Wave was born from the recognition that businesses needed better tools to manage their WhatsApp communications at scale. 
                   As messaging became central to customer engagement, we saw an opportunity to create intelligent automation that would save time while maintaining personal connections.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Founded by a team of experienced developers and marketing professionals, LeadWave combines deep technical expertise with real-world business understanding. 
-                  We've helped hundreds of businesses transform their communication strategies and achieve remarkable growth through automated messaging.
+                  Founded by a team of experienced developers and marketing professionals, Lead Wave combines deep technical expertise with real-world business understanding. 
+                We've helped hundreds of businesses transform their communication strategies and achieve remarkable growth through automated messaging.
                 </p>
               </CardContent>
             </Card>
@@ -148,7 +148,7 @@ const About = () => {
             </CardHeader>
             <CardContent className="space-y-6">
               <p className="text-muted-foreground leading-relaxed">
-                LeadWave is built on a modern, robust technology stack designed for reliability, scalability, and performance:
+                Lead Wave is built on a modern, robust technology stack designed for reliability, scalability, and performance:
               </p>
               
               <div className="grid md:grid-cols-2 gap-6">
@@ -196,7 +196,7 @@ const About = () => {
             <CardContent className="p-8">
               <h2 className="text-2xl font-bold mb-4">Ready to Transform Your Communication?</h2>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Join hundreds of businesses that have revolutionized their WhatsApp communication with LeadWave. 
+                Join hundreds of businesses that have revolutionized their WhatsApp communication with Lead Wave. 
                 Start your journey towards more efficient, automated messaging today.
               </p>
               <div className="flex flex-wrap justify-center gap-4">

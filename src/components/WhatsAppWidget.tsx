@@ -8,7 +8,7 @@ const WhatsAppWidget = () => {
   const [isVisible, setIsVisible] = useState(true);
 
   const whatsappNumber = "917261902348";
-  const predefinedMessage = "Hi! I'm interested in LeadWave. Can you help me get started?";
+  const predefinedMessage = "Hi! I'm interested in Lead Wave. Can you help me get started?";
 
   const handleWhatsAppClick = () => {
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(predefinedMessage)}`;
@@ -49,7 +49,7 @@ const WhatsAppWidget = () => {
                     <MessageCircle className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-semibold">LeadWave Support</h4>
+                    <h4 className="font-semibold">Lead Wave Support</h4>
                     <div className="flex items-center gap-1 text-xs text-green-100">
                       <div className="w-2 h-2 bg-green-200 rounded-full animate-pulse"></div>
                       <span>Online now</span>

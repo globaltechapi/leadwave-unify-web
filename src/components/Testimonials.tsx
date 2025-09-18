@@ -10,7 +10,7 @@ const Testimonials = () => {
       role: "Marketing Director",
       company: "TechCorp",
       initials: "SM",
-      content: "LeadWave has transformed our customer communication. We can now handle 10x more inquiries with the same team size. The chatbot is incredibly smart!",
+      content: "Lead Wave has transformed our customer communication. We can now handle 10x more inquiries with the same team size. The chatbot is incredibly smart!",
       rating: 5
     },
     {
@@ -46,7 +46,7 @@ const Testimonials = () => {
           <h2 className="text-3xl md:text-5xl font-bold">
             See what our customers say about{" "}
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              LeadWave Desktop
+              Lead Wave Desktop
             </span>
           </h2>
         </div>
