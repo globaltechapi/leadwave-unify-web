@@ -160,7 +160,7 @@ const Pricing = () => {
                 {/* Right Side - Features Grid */}
                 <div className="bg-gradient-to-br from-muted/30 to-muted/10 p-8 lg:p-12 border-l border-border/20">
                   <div className="space-y-6">
-                    <h4 className="text-2xl font-bold text-center mb-8">What's Included:</h4>
+                    <h4 className="text-2xl font-bold text-center mb-8">What's Included in Your Purchase:</h4>
                     
                     <div className="grid gap-4">
                       {[
