@@ -154,6 +154,9 @@ const Pricing = () => {
                       <span>•</span>
                       <span>300+ Sales</span>
                     </div>
+                    <p className="text-center text-sm text-muted-foreground pt-2">
+                      Rebranding Service is available for additional cost
+                    </p>
                   </div>
                 </div>
 
