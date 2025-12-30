@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import VersionHighlights from "@/components/VersionHighlights";
 import Features from "@/components/Features";
 import VideoSection from "@/components/VideoSection";
 import Pricing from "@/components/Pricing";
@@ -14,6 +15,7 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
+        <VersionHighlights />
         <div id="features">
           <Features />
         </div>
