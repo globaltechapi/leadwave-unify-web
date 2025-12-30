@@ -165,7 +165,7 @@ const Pricing = () => {
                     <div className="grid gap-4">
                       {[
                         { icon: Download, text: "Complete Desktop Application", desc: "Full-featured WhatsApp marketing software with all premium features", color: "blue" },
-                        { icon: Key, text: "Key Generator System", desc: "Generate unlimited license keys for your customers", color: "purple" },
+                        { icon: Key, text: "Cloud Based Licensing System", desc: "Generate unlimited license keys for your customers", color: "purple" },
                         { icon: Shield, text: "Lifetime License", desc: "No recurring fees or subscriptions - pay once, use forever", color: "green" },
                         { icon: Bot, text: "Advanced AI Automation", desc: "AI-powered messaging, auto-replies, and intelligent chatbots", color: "orange" },
                         { icon: Users, text: "Multi-User Access", desc: "Team collaboration with role-based permissions", color: "indigo" },
