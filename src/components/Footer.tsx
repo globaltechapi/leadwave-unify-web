@@ -9,7 +9,7 @@ const Footer = () => {
     { name: "Features", href: "#features" },
     { name: "Pricing", href: "#pricing" },
     { name: "Video Demo", href: "#video" },
-    { name: "Download", href: "#" }
+    { name: "Download", href: "https://getleadwave.in/LeadWave.exe" }
   ];
 
   const companyLinks = [

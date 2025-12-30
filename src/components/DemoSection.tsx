@@ -38,8 +38,7 @@ const DemoSection = () => {
   };
 
   const handleDownload = () => {
-    // This would typically link to the actual download
-    alert("Download link will be provided after contact");
+    window.open("https://getleadwave.in/LeadWave.exe", "_blank");
   };
 
   return (
