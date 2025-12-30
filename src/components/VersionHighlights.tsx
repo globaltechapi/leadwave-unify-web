@@ -25,7 +25,7 @@ const VersionHighlights = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-background via-muted/30 to-background relative overflow-hidden">
+    <section className="py-12 bg-gradient-to-b from-background via-muted/30 to-background relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
@@ -143,7 +143,7 @@ const VersionHighlights = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-10">
           <div className="inline-flex items-center gap-2 bg-muted/50 px-6 py-3 rounded-full text-muted-foreground">
             <Rocket className="w-5 h-5 text-primary" />
             <span>Experience the new Lead Wave 3.0.0 today</span>
