@@ -81,10 +81,11 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
           <div className="hidden md:block">
-            <Button variant="hero" size="default">
-              Download App
+            <Button variant="hero" size="default" asChild>
+              <a href="https://getleadwave.in/LeadWave.exe">
+                Download App
+              </a>
             </Button>
           </div>
 
@@ -123,8 +124,10 @@ const Navbar = () => {
                   </button>
                 )
               ))}
-              <Button variant="hero" size="default" className="mt-2">
-                Download App
+              <Button variant="hero" size="default" className="mt-2" asChild>
+                <a href="https://getleadwave.in/LeadWave.exe">
+                  Download App
+                </a>
               </Button>
             </div>
           </div>
