@@ -210,64 +210,6 @@ const Pricing = () => {
           </div>
         </div>
 
-        {/* Subscription Plans */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 px-4 py-2">
-              <Zap className="w-4 h-4 mr-2" />
-              Alternative: Subscription Plans
-            </Badge>
-            <h3 className="text-2xl font-bold mb-2">Subscription Plans are also available</h3>
-            <p className="text-muted-foreground">For those who prefer monthly commitments</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {subscriptionPlans.map((plan, index) => (
-              <Card 
-                key={index}
-                className={`relative group hover:shadow-glow transition-all duration-300 hover:-translate-y-2 animate-scale-in border-0 shadow-card ${
-                  plan.popular 
-                    ? 'gradient-hero border-2 border-primary/50 scale-105' 
-                    : ''
-                }`}
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                {plan.popular && (
-                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 gradient-primary text-white border-0">
-                    Most Popular
-                  </Badge>
-                )}
-                
-                <CardHeader className="text-center pb-2">
-                  <CardTitle className="text-xl">{plan.name}</CardTitle>
-                  <CardDescription className="text-base">{plan.description}</CardDescription>
-                </CardHeader>
-                
-                <CardContent className="text-center space-y-4">
-                  <div className="space-y-2">
-                    <div className="text-4xl font-bold text-primary">{plan.price}</div>
-                    <div className="text-sm text-muted-foreground">{plan.duration}</div>
-                    {plan.savings && (
-                      <Badge variant="secondary" className="text-green-600 bg-green-50 dark:bg-green-900/20">
-                        {plan.savings}
-                      </Badge>
-                    )}
-                  </div>
-                  
-                  <Button 
-                    variant={plan.popular ? "hero" : "outline"} 
-                    className="w-full group"
-                    onClick={handleWhatsAppPurchase}
-                  >
-                    Get Started
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
         {/* Features List */}
         <div className="animate-scale-in" style={{ animationDelay: '0.6s' }}>
           <div className="text-center mb-12">
