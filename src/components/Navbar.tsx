@@ -15,6 +15,7 @@ const Navbar = () => {
     { name: "Video", href: "#video", type: "anchor" },
     { name: "Pricing", href: "#pricing", type: "anchor" },
     { name: "Demo", href: "#demo", type: "anchor" },
+    { name: "Readiness", href: "/readiness", type: "link" },
     { name: "About Us", href: "/about", type: "link" },
     { name: "Contact", href: "/contact", type: "link" },
   ];
