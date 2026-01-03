@@ -149,7 +149,7 @@ const Readiness = () => {
             <Progress value={progress} className="h-2" />
             
             {/* Step indicators */}
-            <div className="flex justify-between mt-4 overflow-x-auto pb-2">
+            <div className="flex justify-between mt-4 overflow-x-auto pb-2 pt-1 px-1">
               {steps.map((step) => {
                 const Icon = step.icon;
                 return (
