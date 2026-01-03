@@ -106,7 +106,7 @@ const Readiness = () => {
   };
 
   const handleWhatsAppContact = () => {
-    const phoneNumber = "923191971971";
+    const phoneNumber = "917261902348";
     const message = encodeURIComponent("Hello! I've completed the readiness guide and I'm ready to proceed with Lead Wave.");
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
@@ -666,32 +666,40 @@ const Readiness = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="grid md:grid-cols-3 gap-4">
-                      <motion.div
+                      <motion.a
+                        href="https://www.youtube.com/watch?v=r8fV04q0DMc&list=PLRadeKtCZTrw2gMtU8Lhr3P1nGN6agYJe"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         whileHover={{ scale: 1.02, y: -5 }}
-                        className="p-6 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border border-primary/20 text-center"
+                        className="p-6 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border border-primary/20 text-center cursor-pointer block"
                       >
                         <Play className="w-10 h-10 text-primary mx-auto mb-3" />
                         <h3 className="font-bold mb-2">Watch Demo Videos</h3>
                         <p className="text-sm text-muted-foreground">See Lead Wave in action</p>
-                      </motion.div>
+                      </motion.a>
 
-                      <motion.div
-                        whileHover={{ scale: 1.02, y: -5 }}
-                        className="p-6 bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-xl border border-secondary/20 text-center"
-                      >
-                        <FileCheck className="w-10 h-10 text-secondary mx-auto mb-3" />
-                        <h3 className="font-bold mb-2">Read FAQs</h3>
-                        <p className="text-sm text-muted-foreground">Get answers to common questions</p>
-                      </motion.div>
+                      <Link to="/pricing">
+                        <motion.div
+                          whileHover={{ scale: 1.02, y: -5 }}
+                          className="p-6 bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-xl border border-secondary/20 text-center cursor-pointer h-full"
+                        >
+                          <Zap className="w-10 h-10 text-secondary mx-auto mb-3" />
+                          <h3 className="font-bold mb-2">View Pricing</h3>
+                          <p className="text-sm text-muted-foreground">See our pricing plans</p>
+                        </motion.div>
+                      </Link>
 
-                      <motion.div
+                      <motion.a
+                        href="https://getleadwave.in/LeadWave.exe"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         whileHover={{ scale: 1.02, y: -5 }}
-                        className="p-6 bg-gradient-to-br from-green-500/10 to-green-500/5 rounded-xl border border-green-500/20 text-center"
+                        className="p-6 bg-gradient-to-br from-green-500/10 to-green-500/5 rounded-xl border border-green-500/20 text-center cursor-pointer block"
                       >
                         <Rocket className="w-10 h-10 text-green-500 mx-auto mb-3" />
                         <h3 className="font-bold mb-2">Test Trial Version</h3>
-                        <p className="text-sm text-muted-foreground">If available</p>
-                      </motion.div>
+                        <p className="text-sm text-muted-foreground">Download and try it now</p>
+                      </motion.a>
                     </div>
 
                     <div className="mt-6 p-4 bg-muted rounded-xl text-center">
