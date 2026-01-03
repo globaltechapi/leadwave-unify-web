@@ -18,7 +18,11 @@ import {
   Zap,
   Target,
   Ban,
-  Info
+  Info,
+  Package,
+  Key,
+  UserPlus,
+  Palette
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -36,10 +40,11 @@ const steps = [
   { id: 4, title: 'Features', icon: Zap },
   { id: 5, title: 'Limitations', icon: AlertTriangle },
   { id: 6, title: 'Licensing', icon: Lock },
-  { id: 7, title: 'Not For You', icon: Ban },
-  { id: 8, title: 'Perfect Fit', icon: Users },
-  { id: 9, title: 'Resources', icon: Play },
-  { id: 10, title: 'Confirm', icon: FileCheck },
+  { id: 7, title: 'Included', icon: Package },
+  { id: 8, title: 'Not For You', icon: Ban },
+  { id: 9, title: 'Perfect Fit', icon: Users },
+  { id: 10, title: 'Resources', icon: Play },
+  { id: 11, title: 'Confirm', icon: FileCheck },
 ];
 
 const Readiness = () => {
@@ -98,7 +103,7 @@ const Readiness = () => {
         return limitationChecks.length >= 5;
       case 6:
         return licenseType !== null;
-      case 10:
+      case 11:
         return finalChecks.length >= 4;
       default:
         return true;
@@ -574,8 +579,120 @@ const Readiness = () => {
                 </Card>
               )}
 
-              {/* Step 7: Who Should NOT Buy */}
+              {/* Step 7: Purchase Inclusion */}
               {currentStep === 7 && (
+                <Card className="border-0 shadow-card">
+                  <CardHeader className="text-center">
+                    <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                      <Package className="w-8 h-8 text-primary" />
+                    </div>
+                    <CardTitle className="text-2xl">📦 What's Included in Your Purchase</CardTitle>
+                    <CardDescription>Everything you get with Lead Wave</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      {/* Main Application */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                        className="p-5 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border border-primary/20"
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <Rocket className="w-6 h-6 text-primary" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1">Main Application & Cloud Based Licensing</h3>
+                            <p className="text-muted-foreground text-sm">Full access to Lead Wave desktop application with cloud-based license management system.</p>
+                          </div>
+                        </div>
+                      </motion.div>
+
+                      {/* License System */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="p-5 bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-xl border border-secondary/20"
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className="w-12 h-12 bg-secondary/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <Key className="w-6 h-6 text-secondary" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1">Your Own License Portal</h3>
+                            <p className="text-muted-foreground text-sm mb-2">
+                              A user ID will be created on our license system where you can manage everything.
+                            </p>
+                            <a 
+                              href="https://license.getleadwave.in/" 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-primary hover:underline text-sm font-medium"
+                            >
+                              license.getleadwave.in <ExternalLink className="w-3 h-3" />
+                            </a>
+                          </div>
+                        </div>
+                      </motion.div>
+
+                      {/* Reseller Capabilities */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className="p-5 bg-gradient-to-br from-green-500/10 to-green-500/5 rounded-xl border border-green-500/20"
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <UserPlus className="w-6 h-6 text-green-500" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1">Create Unlimited End User Licenses</h3>
+                            <p className="text-muted-foreground text-sm">As a reseller, you can create end user licenses with no restrictions.</p>
+                            <div className="mt-3 space-y-2">
+                              <div className="flex items-center gap-2 text-sm">
+                                <CheckCircle2 className="w-4 h-4 text-green-500" />
+                                <span>No limit on license creation</span>
+                              </div>
+                              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                                <XCircle className="w-4 h-4 text-destructive" />
+                                <span>Cannot generate reseller accounts</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+
+                      {/* Rebranding Option */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4 }}
+                        className="p-5 bg-gradient-to-br from-amber-500/10 to-amber-500/5 rounded-xl border border-amber-500/20"
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className="w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <Palette className="w-6 h-6 text-amber-500" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1">Rebranding Option</h3>
+                            <p className="text-muted-foreground text-sm mb-2">Want your own brand on the application?</p>
+                            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-500/20 rounded-lg">
+                              <span className="font-bold text-amber-600 dark:text-amber-400">+ ₹5,000 INR</span>
+                              <span className="text-sm text-muted-foreground">additional</span>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Step 8: Who Should NOT Buy */}
+              {currentStep === 8 && (
                 <Card className="border-0 shadow-card">
                   <CardHeader className="text-center">
                     <div className="w-16 h-16 mx-auto bg-destructive/10 rounded-full flex items-center justify-center mb-4">
@@ -613,8 +730,8 @@ const Readiness = () => {
                 </Card>
               )}
 
-              {/* Step 8: Who SHOULD Buy */}
-              {currentStep === 8 && (
+              {/* Step 9: Who SHOULD Buy */}
+              {currentStep === 9 && (
                 <Card className="border-0 shadow-card">
                   <CardHeader className="text-center">
                     <div className="w-16 h-16 mx-auto bg-green-500/10 rounded-full flex items-center justify-center mb-4">
@@ -654,8 +771,8 @@ const Readiness = () => {
                 </Card>
               )}
 
-              {/* Step 9: Resources */}
-              {currentStep === 9 && (
+              {/* Step 10: Resources */}
+              {currentStep === 10 && (
                 <Card className="border-0 shadow-card">
                   <CardHeader className="text-center">
                     <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-4">
@@ -715,8 +832,8 @@ const Readiness = () => {
                 </Card>
               )}
 
-              {/* Step 10: Final Confirmation */}
-              {currentStep === 10 && (
+              {/* Step 11: Final Confirmation */}
+              {currentStep === 11 && (
                 <Card className="border-0 shadow-card overflow-hidden">
                   <div className="h-2 bg-gradient-to-r from-primary via-secondary to-green-500" />
                   <CardHeader className="text-center">
