@@ -621,7 +621,7 @@ const Readiness = () => {
                             <Key className="w-6 h-6 text-secondary" />
                           </div>
                           <div>
-                            <h3 className="font-bold text-lg mb-1">Your Own License Portal</h3>
+                            <h3 className="font-bold text-lg mb-1">Credentials</h3>
                             <p className="text-muted-foreground text-sm mb-2">
                               A user ID will be created on our license system where you can manage everything.
                             </p>
@@ -795,7 +795,7 @@ const Readiness = () => {
                         <p className="text-sm text-muted-foreground">See Lead Wave in action</p>
                       </motion.a>
 
-                      <Link to="/pricing">
+                      <Link to="/#pricing">
                         <motion.div
                           whileHover={{ scale: 1.02, y: -5 }}
                           className="p-6 bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-xl border border-secondary/20 text-center cursor-pointer h-full"
